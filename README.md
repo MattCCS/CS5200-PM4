@@ -1,47 +1,49 @@
 # PM4
 
-**TODOs are in bold.**
-~Done are crossed out.~
-
 
 ## POJOs
 
-- ~Recipe~
-- ~RecipeIngredientLine~
-- ~IngredientLine~
-- ~FoodIngredientLine~
-- ~Food~
-- ~Category~
-- ~FoodNutrientValue~
-- ~Ingredient~
-- ~IngredientNutrientValue~
-- ~Nutrient~
+- Done:
+    - ~Recipe~
+    - ~RecipeIngredientLine~
+    - ~IngredientLine~
+    - ~FoodIngredientLine~
+    - ~Food~
+    - ~Category~
+    - ~FoodNutrientValue~
+    - ~Ingredient~
+    - ~IngredientNutrientValue~
+    - ~Nutrient~
 
 
 ## TODO: DAL Layer
 
-- ~Recipe~
-- **RecipeIngredientLine**
-- **IngredientLine**
-- **FoodIngredientLine**
-- **Food**
-- ~Category~
-- **FoodNutrientValue**
-- ~Ingredient~
-- **IngredientNutrientValue**
-- ~Nutrient~
+- TODO:
+    - **RecipeIngredientLine**
+    - **IngredientLine**
+    - **FoodIngredientLine**
+    - **Food**
+    - **FoodNutrientValue**
+    - **IngredientNutrientValue**
+- Done:
+    - ~Recipe~
+    - ~Category~
+    - ~Ingredient~
+    - ~Nutrient~
 
 
 ## TODO: JSP Layer
 `NOTE: only C/R (Create/Read) are required for us.`
 
-- ~Recipe (D)~
-- **RecipeIngredientLine (CRUD)**
-- **IngredientLine (CRUD)**
-- **FoodIngredientLine (CRUD)**
-- **Food (CRUD)**
-- ~Category (UD)~
-- **FoodNutrientValue (CRUD)**
-- ~Ingredient (UD)~
-- **IngredientNutrientValue (CRUD)**
-- ~Nutrient (UD)~
+- TODO:
+    - **RecipeIngredientLine ()**
+    - **IngredientLine ()**
+    - **FoodIngredientLine ()**
+    - **Food ()**
+    - **FoodNutrientValue ()**
+    - **IngredientNutrientValue ()**
+- Done:
+    - ~Recipe (CRU)~
+    - ~Category (CR)~
+    - ~Ingredient (CR)~
+    - ~Nutrient (CR)~
