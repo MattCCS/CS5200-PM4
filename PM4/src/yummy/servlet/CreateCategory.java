@@ -1,7 +1,7 @@
-package restaurant.servlet;
+package yummy.servlet;
 
-import restaurant.dal.*;
-import restaurant.model.*;
+import yummy.dal.*;
+import yummy.model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/updateRecipe")
-public class UpdateRecipe extends HttpServlet {
+@WebServlet("/createCategory")
+public class CreateCategory extends HttpServlet {
 
-    protected RecipeDao recipeDao;
+    protected CategoryDao categoryDao;
 
     @Override
     public void init() throws ServletException {
-        recipeDao = RecipeDao.getInstance();
+        categoryDao = CategoryDao.getInstance();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class UpdateRecipe extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<Recipe> results = new ArrayList<Recipe>();
+        List<Category> results = new ArrayList<Category>();
 
         String id = req.getParameter("id");
         String name = req.getParameter("name");
@@ -43,16 +43,16 @@ public class UpdateRecipe extends HttpServlet {
             messages.put("success", "Please enter a valid name.");
         } else {
             try {
-                Recipe recipe = new Recipe(Integer.parseInt(id), name);
-                results.add(recipeDao.updateName(recipe, name));
+                Category category = new Category(Integer.parseInt(id), name);
+                results.add(categoryDao.create(category));
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new IOException(e);
             }
-            messages.put("success", "Successfully updated " + name);
+            messages.put("success", "Successfully created " + name);
         }
         req.setAttribute("results", results);
 
-        req.getRequestDispatcher("/UpdateRecipe.jsp").forward(req, resp);
+        req.getRequestDispatcher("/CreateCategory.jsp").forward(req, resp);
     }
 }

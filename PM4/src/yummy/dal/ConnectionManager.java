@@ -1,4 +1,4 @@
-package restaurant.dal;
+package yummy.dal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

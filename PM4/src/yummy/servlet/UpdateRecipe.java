@@ -1,7 +1,7 @@
-package restaurant.servlet;
+package yummy.servlet;
 
-import restaurant.dal.*;
-import restaurant.model.*;
+import yummy.dal.*;
+import yummy.model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/createRecipe")
-public class CreateRecipe extends HttpServlet {
+@WebServlet("/updateRecipe")
+public class UpdateRecipe extends HttpServlet {
 
     protected RecipeDao recipeDao;
 
@@ -44,15 +44,15 @@ public class CreateRecipe extends HttpServlet {
         } else {
             try {
                 Recipe recipe = new Recipe(Integer.parseInt(id), name);
-                results.add(recipeDao.create(recipe));
+                results.add(recipeDao.updateName(recipe, name));
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new IOException(e);
             }
-            messages.put("success", "Successfully created " + name);
+            messages.put("success", "Successfully updated " + name);
         }
         req.setAttribute("results", results);
 
-        req.getRequestDispatcher("/CreateRecipe.jsp").forward(req, resp);
+        req.getRequestDispatcher("/UpdateRecipe.jsp").forward(req, resp);
     }
 }

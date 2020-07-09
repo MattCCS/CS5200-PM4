@@ -1,7 +1,7 @@
-package restaurant.servlet;
+package yummy.servlet;
 
-import restaurant.dal.*;
-import restaurant.model.*;
+import yummy.dal.*;
+import yummy.model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;

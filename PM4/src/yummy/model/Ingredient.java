@@ -1,22 +1,18 @@
-package restaurant.model;
+package yummy.model;
 
-public class Category {
+public class Ingredient {
 
     protected int id;
     protected String name;
     
-    public Category(int id, String name) {
+    public Ingredient(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Category [id=" + id + ", name=" + name + "]";
-    }
-
-    public Category(int id) {
-        this.id = id;
+        return "Ingredient [id=" + id + ", name=" + name + "]";
     }
 
     public int getId() {

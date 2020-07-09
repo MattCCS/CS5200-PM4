@@ -1,6 +1,4 @@
-package restaurant.dal;
-
-import restaurant.model.*;
+package yummy.dal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +8,8 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 import java.util.function.Function;
+
+import yummy.model.*;
 
 
 public class RecipeDao {

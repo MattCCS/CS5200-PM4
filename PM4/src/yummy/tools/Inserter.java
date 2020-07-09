@@ -1,7 +1,7 @@
-package restaurant.tools;
+package yummy.tools;
 
-import restaurant.dal.*;
-import restaurant.model.*;
+import yummy.dal.*;
+import yummy.model.*;
 
 import java.sql.SQLException;
 import java.sql.Date;

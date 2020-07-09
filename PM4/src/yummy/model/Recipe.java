@@ -1,4 +1,4 @@
-package restaurant.model;
+package yummy.model;
 
 public class Recipe {
 
