@@ -4,15 +4,15 @@
 ## TODO: POJOs
 
 - ~Recipe~
-- RecipeIngredientLine
-- IngredientLine
-- FoodIngredientLine
-- Food
-- Category
-- FoodNutrientValue
-- Ingredient
-- IngredientNutrientValue
-- Nutrient
+- ~RecipeIngredientLine~
+- ~IngredientLine~
+- ~FoodIngredientLine~
+- ~Food~
+- ~Category~
+- ~FoodNutrientValue~
+- ~Ingredient~
+- ~IngredientNutrientValue~
+- ~Nutrient~
 
 
 ## TODO: DAL Layer
@@ -22,23 +22,23 @@
 - IngredientLine
 - FoodIngredientLine
 - Food
-- Category
+- ~Category~
 - FoodNutrientValue
-- Ingredient
+- ~Ingredient~
 - IngredientNutrientValue
-- Nutrient
+- ~Nutrient~
 
 
 ## TODO: JSP Layer
 `NOTE: only C/R (Create/Read) are required for us.`
 
-- Recipe (CUD)
+- ~Recipe (D)~
 - RecipeIngredientLine (CRUD)
 - IngredientLine (CRUD)
 - FoodIngredientLine (CRUD)
 - Food (CRUD)
-- Category (CRUD)
+- ~Category (UD)~
 - FoodNutrientValue (CRUD)
-- Ingredient (CRUD)
+- ~Ingredient (UD)~
 - IngredientNutrientValue (CRUD)
-- Nutrient (CRUD)
+- ~Nutrient (UD)~

@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/readCategory")
-public class ReadCategory extends HttpServlet {
+@WebServlet("/readIngredient")
+public class ReadIngredient extends HttpServlet {
 
-    protected CategoryDao categoryDao;
+    protected IngredientDao ingredientDao;
 
     @Override
     public void init() throws ServletException {
-        categoryDao = CategoryDao.getInstance();
+        ingredientDao = IngredientDao.getInstance();
     }
 
     @Override
@@ -33,14 +33,14 @@ public class ReadCategory extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<Category> results = new ArrayList<Category>();
+        List<Ingredient> results = new ArrayList<Ingredient>();
 
         String name = req.getParameter("name");
         if (name == null || name.trim().isEmpty()) {
             messages.put("success", "Please enter a valid name.");
         } else {
             try {
-                results.add(categoryDao.getByName(name));
+                results.add(ingredientDao.getByName(name));
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new IOException(e);
@@ -49,7 +49,7 @@ public class ReadCategory extends HttpServlet {
         }
         req.setAttribute("results", results);
 
-        req.getRequestDispatcher("/ReadCategory.jsp").forward(req, resp);
+        req.getRequestDispatcher("/ReadIngredient.jsp").forward(req, resp);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ReadCategory extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<Category> results = new ArrayList<Category>();
+        List<Ingredient> results = new ArrayList<Ingredient>();
 
         String name = req.getParameter("name");
         System.out.println(name);
@@ -66,7 +66,7 @@ public class ReadCategory extends HttpServlet {
             messages.put("success", "[POST] Please enter a valid name.");
         } else {
             try {
-                results.add(categoryDao.getByName(name));
+                results.add(ingredientDao.getByName(name));
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new IOException(e);
@@ -75,6 +75,6 @@ public class ReadCategory extends HttpServlet {
         }
         req.setAttribute("results", results);
 
-        req.getRequestDispatcher("/ReadCategory.jsp").forward(req, resp);
+        req.getRequestDispatcher("/ReadIngredient.jsp").forward(req, resp);
     }
 }

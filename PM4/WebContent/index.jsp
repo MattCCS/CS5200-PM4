@@ -52,7 +52,9 @@
 
     <div id="Ingredient">
         Ingredient
-        C R U D
+        <a href="CreateIngredient.jsp"> C</a>
+        <a href="ReadIngredient.jsp"> R</a>
+        U D
     </div>
 
     <div id="IngredientNutrientValue">
@@ -62,7 +64,9 @@
 
     <div id="Nutrient">
         Nutrient
-        C R U D
+        <a href="CreateNutrient.jsp"> C</a>
+        <a href="ReadNutrient.jsp"> R</a>
+        U D
     </div>
 
 

@@ -62,9 +62,6 @@ public class ReadRecipe extends HttpServlet {
     			throw new IOException(e);
             }
         	messages.put("success", "Displaying results for " + name);
-        	// Save the previous search term, so it can be used as the default
-        	// in the input box when rendering ReadRecipe.jsp.
-        	messages.put("previousFirstName", name);
         }
         req.setAttribute("results", results);
 
