@@ -1,7 +1,10 @@
 # PM4
 
+**TODOs are in bold.**
+~Done are crossed out.~
 
-## TODO: POJOs
+
+## POJOs
 
 - ~Recipe~
 - ~RecipeIngredientLine~
@@ -18,14 +21,14 @@
 ## TODO: DAL Layer
 
 - ~Recipe~
-- RecipeIngredientLine
-- IngredientLine
-- FoodIngredientLine
-- Food
+- **RecipeIngredientLine**
+- **IngredientLine**
+- **FoodIngredientLine**
+- **Food**
 - ~Category~
-- FoodNutrientValue
+- **FoodNutrientValue**
 - ~Ingredient~
-- IngredientNutrientValue
+- **IngredientNutrientValue**
 - ~Nutrient~
 
 
@@ -33,12 +36,12 @@
 `NOTE: only C/R (Create/Read) are required for us.`
 
 - ~Recipe (D)~
-- RecipeIngredientLine (CRUD)
-- IngredientLine (CRUD)
-- FoodIngredientLine (CRUD)
-- Food (CRUD)
+- **RecipeIngredientLine (CRUD)**
+- **IngredientLine (CRUD)**
+- **FoodIngredientLine (CRUD)**
+- **Food (CRUD)**
 - ~Category (UD)~
-- FoodNutrientValue (CRUD)
+- **FoodNutrientValue (CRUD)**
 - ~Ingredient (UD)~
-- IngredientNutrientValue (CRUD)
+- **IngredientNutrientValue (CRUD)**
 - ~Nutrient (UD)~
