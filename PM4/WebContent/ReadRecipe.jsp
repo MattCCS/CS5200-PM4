@@ -8,11 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Find a Recipe</title>
+<title>Read Recipe</title>
 </head>
 <body>
-	<form action=findrecipe method="post">
-		<h1>Search for a Recipe by Name</h1>
+    <a href="index.jsp">Home</a>
+
+    <h1>Find a Recipe by Name</h1>
+
+	<form action=readRecipe method="get">
 		<p>
 			<label for="name">Name</label>
 			<input id="name" name="name" value="${fn:escapeXml(param.name)}">
@@ -23,21 +26,20 @@
 			<span id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
-	<br/>
-	<div id="recipeCreate"><a href="recipecreate">Create Recipe</a></div>
-	<br/>
-	<h1>Matching Recipes</h1>
+    <div>
+        <h1>Results</h1>
         <table border="1">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
             </tr>
-            <c:forEach items="${recipes}" var="recipe" >
+            <c:forEach items="${results}" var="result" >
                 <tr>
-                    <td><c:out value="${recipe.getId()}" /></td>
-                    <td><c:out value="${recipe.getName()}" /></td>
+                    <td><c:out value="${result.getId()}" /></td>
+                    <td><c:out value="${result.getName()}" /></td>
                 </tr>
             </c:forEach>
-       </table>
+        </table>
+    </div>
 </body>
 </html>

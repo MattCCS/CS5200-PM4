@@ -15,10 +15,6 @@ public class Recipe {
 		return "Recipe [id=" + id + ", name=" + name + "]";
 	}
 
-	public Recipe(int id) {
-		this.id = id;
-	}
-
 	public int getId() {
 		return id;
 	}

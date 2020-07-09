@@ -9,7 +9,7 @@ import java.util.Properties;
 public class ConnectionManager {
 
 	private final String user = "root";
-	private final String password = "";
+	private final String password = "trDN-(tyK1iw";
 	private final String hostName = "localhost";
 	private final int port = 3306;
 	private final String schema = "PM4";

@@ -52,26 +52,26 @@ public class RecipeDao {
 		return recipe;
 	}
 
-	public Recipe getRecipeByName(String nameArg) throws SQLException {
+	public Recipe getByName(String name) throws SQLException {
 		String selectForm = "SELECT id,name FROM Recipe WHERE name=?;";
 
 		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-		selectStmt.setString(1, nameArg);
+		selectStmt.setString(1, name);
 
 		return GenericDao.genericGet(connectionManager, selectStmt, RecipeDao::converter);
 	}
 
-	public Recipe updateName(Recipe recipe, String nameArg) throws SQLException {
+	public Recipe updateName(Recipe recipe, String name) throws SQLException {
 		String updateForm = "UPDATE Recipe SET name=? WHERE id=?;";
 
 		PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-		updateStmt.setString(1, nameArg);
+		updateStmt.setString(1, name);
 		updateStmt.setInt(2, recipe.getId());
 
 		GenericDao.genericUpdate(connectionManager, updateStmt);
 
 		// Update before returning to the caller.
-		recipe.setName(nameArg);
+		recipe.setName(name);
 		return recipe;
 	}
 

@@ -22,14 +22,14 @@ public class Inserter {
 		recipeDao.updateName(newRecipe2, "Recipe 2a");
 
 		// READ.
-		Recipe recipe = recipeDao.getRecipeByName("Recipe 1");
+		Recipe recipe = recipeDao.getByName("Recipe 1");
 		System.out.format("Reading recipe: %s \n", recipe.toString());
 		// for	(Recipe recipe1 : recipeDao.getRecipesByUserName("mcotton")) {
 		// 	System.out.format("  Listing recipes: %s \n", recipe1.toString());
 		// }
 
 		// DELETE.
-		recipeDao.delete(recipeDao.getRecipeByName("Recipe 2a"));
-		recipeDao.delete(recipeDao.getRecipeByName("Recipe 1"));
+		recipeDao.delete(recipeDao.getByName("Recipe 2a"));
+		recipeDao.delete(recipeDao.getByName("Recipe 1"));
 	}
 }
