@@ -16,22 +16,20 @@
     - ~Nutrient~
 
 
-## TODO: DAL Layer
+## DAL Layer
 
-- TODO:
-    - **RecipeIngredientLine**
-    - **IngredientLine**
-    - **FoodIngredientLine**
-    - **Food**
-    - **FoodNutrientValue**
-    - **IngredientNutrientValue**
 - Done:
     - ~Recipe~
     - ~Category~
     - ~Ingredient~
     - ~Nutrient~
-
-
+    - ~RecipeIngredientLine~
+    - ~IngredientLine~
+    - ~FoodIngredientLine~
+    - ~Food~
+    - ~FoodNutrientValue~
+    - ~IngredientNutrientValue~
+    
 ## TODO: JSP Layer
 `NOTE: only C/R (Create/Read) are required for us.`
 
