@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/createIngredient")
+@WebServlet("/createIngredientLine")
 public class CreateIngredientLine extends HttpServlet {
 
     protected IngredientLineDao ingredientLineDao;
