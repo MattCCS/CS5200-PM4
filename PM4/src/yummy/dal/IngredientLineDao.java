@@ -44,28 +44,25 @@ public class IngredientLineDao {
         }
     }
 
- // create statement 
-    
-    public IngredientLine create(IngredientLine ingredientline) throws SQLException {
+    public IngredientLine create(IngredientLine ingredientLine) throws SQLException {
         String insertForm = "INSERT INTO IngredientLine(id,amountNumerator,amountDenominator,unitOfMeasurement,foodId,ingredientId,description) VALUES(?,?,?,?,?,?,?);";
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setString(1, ingredientline.getId());
-        statement.setInt(2, ingredientline.getAmountNumerator());
-        statement.setInt(3, ingredientline.getAmountDenominator());
-        statement.setString(4, ingredientline.getUnitOfMeasurement());
-        statement.setInt(5, ingredientline.getFoodId());
-        statement.setInt(6, ingredientline.getIngredientId());
-        statement.setString(7, ingredientline.getDescription());
+        statement.setString(1, ingredientLine.getId());
+        statement.setInt(2, ingredientLine.getAmountNumerator());
+        statement.setInt(3, ingredientLine.getAmountDenominator());
+        statement.setString(4, ingredientLine.getUnitOfMeasurement());
+        statement.setInt(5, ingredientLine.getFoodId());
+        statement.setInt(6, ingredientLine.getIngredientId());
+        statement.setString(7, ingredientLine.getDescription());
         
         GenericDao.genericCreate(connectionManager, statement);
 
-        return ingredientline;
+        return ingredientLine;
     }
-// read statement of getByid
-    
-    public IngredientLine getByid(String id) throws SQLException {
+
+    public IngredientLine getById(String id) throws SQLException {
         String selectForm = "SELECT id,amountNumerator,amountDenominator,unitOfMeasurement,foodId,ingredientId,description FROM IngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -74,34 +71,25 @@ public class IngredientLineDao {
         return GenericDao.genericGet(connectionManager, selectStmt, IngredientLineDao::converter);
     }
 
-//update statement
-    
-    public IngredientLine updateUnitOfMeasurement(IngredientLine ingredientline, String newunitOfMeasurement) throws SQLException {
+    public IngredientLine updateUnitOfMeasurement(IngredientLine ingredientLine, String newUnitOfMeasurement) throws SQLException {
         String updateForm = "UPDATE IngredientLine SET unitOfMeasurement=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, newunitOfMeasurement);
-        updateStmt.setString(2, ingredientline.getId()); 
-        updateStmt.setInt(3, ingredientline.getAmountNumerator());
-        updateStmt.setInt(4, ingredientline.getAmountDenominator());
-        updateStmt.setInt(5, ingredientline.getFoodId());
-        updateStmt.setInt(6, ingredientline.getIngredientId());
-        updateStmt.setString(7, ingredientline.getDescription());
+        updateStmt.setString(1, newUnitOfMeasurement);
+        updateStmt.setString(2, ingredientLine.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
         // Update before returning to the caller.
-        ingredientline.setUnitOfMeasurement(newunitOfMeasurement);
-        return ingredientline;
+        ingredientLine.setUnitOfMeasurement(newUnitOfMeasurement);
+        return ingredientLine;
     }
 
-//delete statement
-    
-    public IngredientLine delete(IngredientLine ingredientline) throws SQLException {
+    public IngredientLine delete(IngredientLine ingredientLine) throws SQLException {
         String deleteForm = "DELETE FROM IngredientLine WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setString(1, ingredientline.getId());
+        deleteStmt.setString(1, ingredientLine.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 

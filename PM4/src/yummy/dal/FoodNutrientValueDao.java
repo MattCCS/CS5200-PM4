@@ -41,9 +41,9 @@ public class FoodNutrientValueDao {
             throw new RuntimeException(e);
         }
     }
-//create statement
+
     public FoodNutrientValue create(FoodNutrientValue foodNutrientValue) throws SQLException {
-        String insertForm = "INSERT INTO FoodNutrientValue(id,foodId, nutrientCodeId,nutrientValue,nutrientValueUnit) VALUES(?,?,?,?,?);";
+        String insertForm = "INSERT INTO FoodNutrientValue(id,foodId,nutrientCodeId,nutrientValue,nutrientValueUnit) VALUES(?,?,?,?,?);";
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
@@ -58,10 +58,8 @@ public class FoodNutrientValueDao {
         return foodNutrientValue;
     }
 
-//read getbyid statement
-    
-    public FoodNutrientValue getbyid(int id) throws SQLException {
-        String selectForm = "SELECT id,foodId, nutrientCodeId,nutrientValue,nutrientValueUnit FROM FoodNutrientValue WHERE id=?;";
+    public FoodNutrientValue getById(int id) throws SQLException {
+        String selectForm = "SELECT id,foodId,nutrientCodeId,nutrientValue,nutrientValueUnit FROM FoodNutrientValue WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
         selectStmt.setInt(1, id);
@@ -69,25 +67,21 @@ public class FoodNutrientValueDao {
         return GenericDao.genericGet(connectionManager, selectStmt, FoodNutrientValueDao::converter);
     }
 
-//Update nutrientValue statement    
-    
-    public FoodNutrientValue updatenutrientValue(FoodNutrientValue foodNutrientValue, int newnutrientValue) throws SQLException {
+    public FoodNutrientValue updateNutrientValue(FoodNutrientValue foodNutrientValue, int newNutrientValue) throws SQLException {
         String updateForm = "UPDATE Nutrient SET nutrientValue=? WHERE id=?;";
+
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setInt(1, newnutrientValue);
+
+        updateStmt.setInt(1, newNutrientValue);
         updateStmt.setInt(2, foodNutrientValue.getId());
-        updateStmt.setInt(3, foodNutrientValue.getFoodId());
-        updateStmt.setInt(4, foodNutrientValue.getNutrientCodeId());
-        updateStmt.setString(5, foodNutrientValue.getNutrientValueUnit());
+
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
         // Update before returning to the caller.
-        foodNutrientValue.setNutrientValue(newnutrientValue);
+        foodNutrientValue.setNutrientValue(newNutrientValue);
         return foodNutrientValue;
     }
 
-//delete statement    
-    
     public FoodNutrientValue delete(FoodNutrientValue foodNutrientValue) throws SQLException {
         String deleteForm = "DELETE FROM FoodNutrientValue WHERE id=?;";
 

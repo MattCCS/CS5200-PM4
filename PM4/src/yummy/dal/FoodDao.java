@@ -30,11 +30,9 @@ public class FoodDao {
         if (results == null) return null;
         try {
             return new Food(
-                
                 results.getInt(1),
                 results.getString(2),
                 results.getInt(3)
-               
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,8 +40,6 @@ public class FoodDao {
         }
     }
 
- // create statement 
-    
     public Food create(Food food) throws SQLException {
         String insertForm = "INSERT INTO Food(id,name,categoryId) VALUES(?,?,?);";
 
@@ -52,15 +48,13 @@ public class FoodDao {
         statement.setInt(1, food.getId());
         statement.setString(2, food.getName());
         statement.setInt(3, food.getCategoryId());
-        
-        
+
         GenericDao.genericCreate(connectionManager, statement);
 
         return food;
     }
-// read statement of getByid
-    
-    public Food getByid(int id) throws SQLException {
+
+    public Food getById(int id) throws SQLException {
         String selectForm = "SELECT id,name,categoryId FROM Food WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -69,26 +63,20 @@ public class FoodDao {
         return GenericDao.genericGet(connectionManager, selectStmt, FoodDao::converter);
     }
 
-//update statement
-    
-    public Food updatename(Food food, String newname) throws SQLException {
+    public Food updateName(Food food, String newName) throws SQLException {
         String updateForm = "UPDATE Food SET name=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, newname); 
+        updateStmt.setString(1, newName); 
         updateStmt.setInt(2, food.getId());
-        updateStmt.setInt(3, food.getCategoryId());
-
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
         // Update before returning to the caller.
-        food.setName(newname);
+        food.setName(newName);
         return food;
     }
 
-//delete statement
-    
     public Food delete(Food food) throws SQLException {
         String deleteForm = "DELETE FROM Food WHERE id=?;";
 

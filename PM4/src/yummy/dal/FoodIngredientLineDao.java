@@ -30,11 +30,9 @@ public class FoodIngredientLineDao {
         if (results == null) return null;
         try {
             return new FoodIngredientLine(
-                
                 results.getInt(1),
                 results.getInt(2),
                 results.getString(3)
-               
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,25 +40,21 @@ public class FoodIngredientLineDao {
         }
     }
 
- // create statement 
-    
-    public FoodIngredientLine create(FoodIngredientLine foodingredientline) throws SQLException {
+    public FoodIngredientLine create(FoodIngredientLine foodIngredientLine) throws SQLException {
         String insertForm = "INSERT INTO IngredientLine(id,foodId,ingredientLineId) VALUES(?,?,?);";
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, foodingredientline.getId());
-        statement.setInt(2, foodingredientline.getFoodId());
-        statement.setString(3, foodingredientline.getIngredientLineId());
-        
-        
+        statement.setInt(1, foodIngredientLine.getId());
+        statement.setInt(2, foodIngredientLine.getFoodId());
+        statement.setString(3, foodIngredientLine.getIngredientLineId());
+
         GenericDao.genericCreate(connectionManager, statement);
 
-        return foodingredientline;
+        return foodIngredientLine;
     }
-// read statement of getByid
-    
-    public FoodIngredientLine getByid(int id) throws SQLException {
+
+    public FoodIngredientLine getById(int id) throws SQLException {
         String selectForm = "SELECT id,foodId,ingredientLineId FROM FoodIngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -69,31 +63,25 @@ public class FoodIngredientLineDao {
         return GenericDao.genericGet(connectionManager, selectStmt, FoodIngredientLineDao::converter);
     }
 
-//update statement
-    
-    public FoodIngredientLine updatefoodId(FoodIngredientLine foodingredientline, int newfoodId) throws SQLException {
+    public FoodIngredientLine updateFoodId(FoodIngredientLine foodIngredientLine, int newfoodId) throws SQLException {
         String updateForm = "UPDATE FoodIngredientLine SET foodId=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
         updateStmt.setInt(1, newfoodId); 
-        updateStmt.setInt(2, foodingredientline.getId());
-        updateStmt.setString(3, foodingredientline.getIngredientLineId());
-
+        updateStmt.setInt(2, foodIngredientLine.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
         // Update before returning to the caller.
-        foodingredientline.setFoodId(newfoodId);
-        return foodingredientline;
+        foodIngredientLine.setFoodId(newfoodId);
+        return foodIngredientLine;
     }
 
-//delete statement
-    
-    public FoodIngredientLine delete(FoodIngredientLine foodingredientline) throws SQLException {
+    public FoodIngredientLine delete(FoodIngredientLine foodIngredientLine) throws SQLException {
         String deleteForm = "DELETE FROM FoodIngredientLine WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, foodingredientline.getId());
+        deleteStmt.setInt(1, foodIngredientLine.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
