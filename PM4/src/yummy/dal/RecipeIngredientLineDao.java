@@ -30,11 +30,9 @@ public class RecipeIngredientLineDao {
         if (results == null) return null;
         try {
             return new RecipeIngredientLine(
-                
                 results.getInt(1),
                 results.getInt(2),
                 results.getString(3)
-               
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,25 +40,21 @@ public class RecipeIngredientLineDao {
         }
     }
 
- // create statement 
-    
-    public RecipeIngredientLine create(RecipeIngredientLine recipeingredientline) throws SQLException {
+    public RecipeIngredientLine create(RecipeIngredientLine recipeIngredientLine) throws SQLException {
         String insertForm = "INSERT INTO IngredientLine(id,recipeId,ingredientLineId) VALUES(?,?,?);";
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, recipeingredientline.getId());
-        statement.setInt(2, recipeingredientline.getRecipeId());
-        statement.setString(3, recipeingredientline.getIngredientLineId());
-        
-        
+        statement.setInt(1, recipeIngredientLine.getId());
+        statement.setInt(2, recipeIngredientLine.getRecipeId());
+        statement.setString(3, recipeIngredientLine.getIngredientLineId());
+
         GenericDao.genericCreate(connectionManager, statement);
 
-        return recipeingredientline;
+        return recipeIngredientLine;
     }
-// read statement of getByid
-    
-    public RecipeIngredientLine getByid(int id) throws SQLException {
+
+    public RecipeIngredientLine getById(int id) throws SQLException {
         String selectForm = "SELECT id,recipeId,ingredientLineId FROM RecipeIngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -69,31 +63,25 @@ public class RecipeIngredientLineDao {
         return GenericDao.genericGet(connectionManager, selectStmt, RecipeIngredientLineDao::converter);
     }
 
-//update statement
-    
-    public RecipeIngredientLine updaterecipeId(RecipeIngredientLine recipeingredientline, int newrecipeId) throws SQLException {
+    public RecipeIngredientLine updateRecipeId(RecipeIngredientLine recipeIngredientLine, int newRecipeId) throws SQLException {
         String updateForm = "UPDATE RecipeIngredientLine SET recipeId=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setInt(1, newrecipeId); 
-        updateStmt.setInt(2, recipeingredientline.getId());
-        updateStmt.setString(3, recipeingredientline.getIngredientLineId());
-
+        updateStmt.setInt(1, newRecipeId); 
+        updateStmt.setInt(2, recipeIngredientLine.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
         // Update before returning to the caller.
-        recipeingredientline.setRecipeId(newrecipeId);
-        return recipeingredientline;
+        recipeIngredientLine.setRecipeId(newRecipeId);
+        return recipeIngredientLine;
     }
 
-//delete statement
-    
-    public RecipeIngredientLine delete(RecipeIngredientLine recipeingredientline) throws SQLException {
+    public RecipeIngredientLine delete(RecipeIngredientLine recipeIngredientLine) throws SQLException {
         String deleteForm = "DELETE FROM RecipeIngredientLine WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, recipeingredientline.getId());
+        deleteStmt.setInt(1, recipeIngredientLine.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
