@@ -41,7 +41,7 @@ public class RecipeIngredientLineDao {
     }
 
     public RecipeIngredientLine create(RecipeIngredientLine recipeIngredientLine) throws SQLException {
-        String insertForm = "INSERT INTO IngredientLine(id,recipeId,ingredientLineId) VALUES(?,?,?);";
+        String insertForm = "INSERT INTO RecipeIngredientLine(id,recipeId,ingredientLineId) VALUES(?,?,?);";
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
