@@ -30,18 +30,18 @@
     - ~FoodNutrientValue~
     - ~IngredientNutrientValue~
     
-## TODO: JSP Layer
+## JSP Layer
 `NOTE: only C/R (Create/Read) are required for us.`
 
-- TODO:
-    - **RecipeIngredientLine ()**
-    - **IngredientLine ()**
-    - **FoodIngredientLine ()**
-    - **Food ()**
-    - **FoodNutrientValue ()**
-    - **IngredientNutrientValue ()**
+
 - Done:
     - ~Recipe (CRU)~
     - ~Category (CR)~
     - ~Ingredient (CR)~
     - ~Nutrient (CR)~
+    - ~RecipeIngredientLine(CR)~
+    - ~IngredientLine(CR)~
+    - ~FoodIngredientLine(CR)~
+    - ~Food(CR)~
+    - ~FoodNutrientValue(CR)~
+    - ~IngredientNutrientValue(CR)~
