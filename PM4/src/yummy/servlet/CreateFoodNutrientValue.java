@@ -53,7 +53,7 @@ public class CreateFoodNutrientValue extends HttpServlet {
             messages.put("success", "Please enter a valid nutrientValueUnit.");
         } else {
             try {
-            	FoodNutrientValue foodNutrientValue = new FoodNutrientValue(Integer.parseInt(id),Integer.parseInt(foodId),Integer.parseInt(nutrientCodeId),Integer.parseInt(nutrientValue),nutrientValueUnit);
+            	FoodNutrientValue foodNutrientValue = new FoodNutrientValue(Integer.parseInt(id), Integer.parseInt(foodId), Integer.parseInt(nutrientCodeId), Integer.parseInt(nutrientValue), nutrientValueUnit);
                 results.add(foodNutrientValueDao.create(foodNutrientValue));
             } catch (SQLException e) {
                 e.printStackTrace();

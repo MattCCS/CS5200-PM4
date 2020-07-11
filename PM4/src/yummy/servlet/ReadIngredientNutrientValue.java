@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/readIngredientNutrientValue")
 public class ReadIngredientNutrientValue extends HttpServlet {
 
@@ -50,30 +51,4 @@ public class ReadIngredientNutrientValue extends HttpServlet {
 
         req.getRequestDispatcher("/ReadIngredientNutrientValue.jsp").forward(req, resp);
 	}
-	
-	@Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        Map<String, String> messages = new HashMap<String, String>();
-        req.setAttribute("messages", messages);
-
-        List<IngredientNutrientValue> results = new ArrayList<IngredientNutrientValue>();
-
-        String id = req.getParameter("id");
-        System.out.println(id);
-        if (id == null || id.trim().isEmpty()) {
-            messages.put("success", "[POST] Please enter a valid id.");
-        } else {
-            try {
-                results.add(ingredientNutrientValueDao.getById(Integer.parseInt(id)));
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw new IOException(e);
-            }
-            messages.put("success", "Displaying results for " + id);
-        }
-        req.setAttribute("results", results);
-
-        req.getRequestDispatcher("/ReadIngredientNutrientValue.jsp").forward(req, resp);
-    }
 }

@@ -51,30 +51,4 @@ public class ReadCategory extends HttpServlet {
 
         req.getRequestDispatcher("/ReadCategory.jsp").forward(req, resp);
     }
-
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        Map<String, String> messages = new HashMap<String, String>();
-        req.setAttribute("messages", messages);
-
-        List<Category> results = new ArrayList<Category>();
-
-        String name = req.getParameter("name");
-        System.out.println(name);
-        if (name == null || name.trim().isEmpty()) {
-            messages.put("success", "[POST] Please enter a valid name.");
-        } else {
-            try {
-                results.add(categoryDao.getByName(name));
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw new IOException(e);
-            }
-            messages.put("success", "Displaying results for " + name);
-        }
-        req.setAttribute("results", results);
-
-        req.getRequestDispatcher("/ReadCategory.jsp").forward(req, resp);
-    }
 }

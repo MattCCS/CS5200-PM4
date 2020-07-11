@@ -53,7 +53,7 @@ public class CreateIngredientNutrientValue extends HttpServlet {
             messages.put("success", "Please enter a valid nutrientValueUnit.");
         } else {
             try {
-            	IngredientNutrientValue ingredientNutrientValue = new IngredientNutrientValue(Integer.parseInt(id),Integer.parseInt(ingredientId),Integer.parseInt(nutrientCodeId),Integer.parseInt(nutrientValue),nutrientValueUnit);
+            	IngredientNutrientValue ingredientNutrientValue = new IngredientNutrientValue(Integer.parseInt(id), Integer.parseInt(ingredientId), Integer.parseInt(nutrientCodeId), Integer.parseInt(nutrientValue), nutrientValueUnit);
                 results.add(ingredientNutrientValueDao.create(ingredientNutrientValue));
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -48,7 +48,7 @@ public class CreateFoodIngredientLine extends HttpServlet {
         
         } else {
             try {
-            	FoodIngredientLine foodIngredientLine = new FoodIngredientLine(Integer.parseInt(id),Integer.parseInt(foodId), ingredientLineId);
+            	FoodIngredientLine foodIngredientLine = new FoodIngredientLine(Integer.parseInt(id), Integer.parseInt(foodId), ingredientLineId);
                 results.add(foodIngredientLineDao.create(foodIngredientLine));
             } catch (SQLException e) {
                 e.printStackTrace();

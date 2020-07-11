@@ -51,30 +51,4 @@ public class ReadIngredient extends HttpServlet {
 
         req.getRequestDispatcher("/ReadIngredient.jsp").forward(req, resp);
     }
-
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        Map<String, String> messages = new HashMap<String, String>();
-        req.setAttribute("messages", messages);
-
-        List<Ingredient> results = new ArrayList<Ingredient>();
-
-        String name = req.getParameter("name");
-        System.out.println(name);
-        if (name == null || name.trim().isEmpty()) {
-            messages.put("success", "[POST] Please enter a valid name.");
-        } else {
-            try {
-                results.add(ingredientDao.getByName(name));
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw new IOException(e);
-            }
-            messages.put("success", "Displaying results for " + name);
-        }
-        req.setAttribute("results", results);
-
-        req.getRequestDispatcher("/ReadIngredient.jsp").forward(req, resp);
-    }
 }

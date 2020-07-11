@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/createIngredient")
+@WebServlet("/createRecipeIngredientLine")
 public class CreateRecipeIngredientLine extends HttpServlet {
 
     protected RecipeIngredientLineDao recipeIngredientLineDao;
@@ -49,7 +49,7 @@ public class CreateRecipeIngredientLine extends HttpServlet {
         
         else {
             try {
-            	RecipeIngredientLine recipeIngredientLine = new RecipeIngredientLine(Integer.parseInt(id), Integer.parseInt(recipeId),ingredientLineId);
+            	RecipeIngredientLine recipeIngredientLine = new RecipeIngredientLine(Integer.parseInt(id), Integer.parseInt(recipeId), ingredientLineId);
                 results.add(recipeIngredientLineDao.create(recipeIngredientLine));
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -59,6 +59,6 @@ public class CreateRecipeIngredientLine extends HttpServlet {
         }
         req.setAttribute("results", results);
 
-        req.getRequestDispatcher("/CreateIngredient.jsp").forward(req, resp);
+        req.getRequestDispatcher("/CreateRecipeIngredientLine.jsp").forward(req, resp);
     }
 }

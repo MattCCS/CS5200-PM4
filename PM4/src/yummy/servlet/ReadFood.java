@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/readFood")
 public class ReadFood extends HttpServlet {
 
@@ -50,30 +51,4 @@ public class ReadFood extends HttpServlet {
 
         req.getRequestDispatcher("/ReadFood.jsp").forward(req, resp);
 	}
-	
-	@Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        Map<String, String> messages = new HashMap<String, String>();
-        req.setAttribute("messages", messages);
-
-        List<Food> results = new ArrayList<Food>();
-
-        String id = req.getParameter("id");
-        System.out.println(id);
-        if (id == null || id.trim().isEmpty()) {
-            messages.put("success", "[POST] Please enter a valid id.");
-        } else {
-            try {
-                results.add(foodDao.getById(Integer.parseInt(id)));
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw new IOException(e);
-            }
-            messages.put("success", "Displaying results for " + id);
-        }
-        req.setAttribute("results", results);
-
-        req.getRequestDispatcher("/ReadFood.jsp").forward(req, resp);
-    }
 }

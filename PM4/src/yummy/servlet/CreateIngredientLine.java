@@ -51,15 +51,9 @@ public class CreateIngredientLine extends HttpServlet {
             messages.put("success", "Please enter a valid amountDenominator.");
         } else if (unitOfMeasurement == null || unitOfMeasurement.trim().isEmpty()) {
             messages.put("success", "Please enter a valid unitOfMeasurement.");
-        } else if (foodId == null || foodId.trim().isEmpty()) {
-            messages.put("success", "Please enter a valid foodId.");
-        } else if (ingredientId == null || ingredientId.trim().isEmpty()) {
-            messages.put("success", "Please enter a valid ingredientId.");
-        } else if (description == null || description.trim().isEmpty()) {
-            messages.put("success", "Please enter a valid description.");
         } else {
             try {
-            	IngredientLine ingredientLine = new IngredientLine(id, Integer.parseInt(amountNumerator), Integer.parseInt(amountDenominator),unitOfMeasurement, Integer.parseInt(foodId), Integer.parseInt(ingredientId), description);
+            	IngredientLine ingredientLine = new IngredientLine(id, Integer.parseInt(amountNumerator), Integer.parseInt(amountDenominator),unitOfMeasurement);
                 results.add(ingredientLineDao.create(ingredientLine));
             } catch (SQLException e) {
                 e.printStackTrace();
