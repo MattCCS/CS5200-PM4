@@ -2,11 +2,11 @@ package yummy.model;
 
 public class FoodIngredientLine {
     
-    protected int id;
-    protected int foodId;
+    protected Integer id;
+    protected Integer foodId;
     protected String ingredientLineId;
 
-    public FoodIngredientLine(int id, int foodId, String ingredientLineId) {
+    public FoodIngredientLine(Integer id, Integer foodId, String ingredientLineId) {
         super();
         this.id = id;
         this.foodId = foodId;
@@ -19,19 +19,19 @@ public class FoodIngredientLine {
                 + "]";
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getFoodId() {
+    public Integer getFoodId() {
         return foodId;
     }
 
-    public void setFoodId(int foodId) {
+    public void setFoodId(Integer foodId) {
         this.foodId = foodId;
     }
 

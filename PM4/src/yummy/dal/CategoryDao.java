@@ -44,8 +44,8 @@ public class CategoryDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, category.getId());
-        statement.setString(2, category.getName());
+        GenericDao.setInt(statement, 1, category.getId());
+        GenericDao.setString(statement, 2, category.getName());
 
         GenericDao.genericCreate(connectionManager, statement);
 
@@ -56,7 +56,7 @@ public class CategoryDao {
         String selectForm = "SELECT id,name FROM Category WHERE name=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setString(1, name);
+        GenericDao.setString(selectStmt, 1, name);
 
         return GenericDao.genericGet(connectionManager, selectStmt, CategoryDao::converter);
     }
@@ -65,8 +65,8 @@ public class CategoryDao {
         String updateForm = "UPDATE Category SET name=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, name);
-        updateStmt.setInt(2, category.getId());
+        GenericDao.setString(updateStmt, 1, name);
+        GenericDao.setInt(updateStmt, 2, category.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -79,7 +79,7 @@ public class CategoryDao {
         String deleteForm = "DELETE FROM Category WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, category.getId());
+        GenericDao.setInt(deleteStmt, 1, category.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 

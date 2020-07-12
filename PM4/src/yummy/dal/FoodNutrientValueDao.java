@@ -47,11 +47,11 @@ public class FoodNutrientValueDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, foodNutrientValue.getId());
-        statement.setInt(2, foodNutrientValue.getFoodId());
-        statement.setInt(3, foodNutrientValue.getNutrientCodeId());
-        statement.setInt(4, foodNutrientValue.getNutrientValue());
-        statement.setString(5, foodNutrientValue.getNutrientValueUnit());
+        GenericDao.setInt(statement, 1, foodNutrientValue.getId());
+        GenericDao.setInt(statement, 2, foodNutrientValue.getFoodId());
+        GenericDao.setInt(statement, 3, foodNutrientValue.getNutrientCodeId());
+        GenericDao.setInt(statement, 4, foodNutrientValue.getNutrientValue());
+        GenericDao.setString(statement, 5, foodNutrientValue.getNutrientValueUnit());
 
         GenericDao.genericCreate(connectionManager, statement);
 
@@ -62,7 +62,7 @@ public class FoodNutrientValueDao {
         String selectForm = "SELECT id,foodId,nutrientCodeId,nutrientValue,nutrientValueUnit FROM FoodNutrientValue WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setInt(1, id);
+        GenericDao.setInt(selectStmt, 1, id);
 
         return GenericDao.genericGet(connectionManager, selectStmt, FoodNutrientValueDao::converter);
     }
@@ -72,8 +72,8 @@ public class FoodNutrientValueDao {
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
 
-        updateStmt.setInt(1, newNutrientValue);
-        updateStmt.setInt(2, foodNutrientValue.getId());
+        GenericDao.setInt(updateStmt, 1, newNutrientValue);
+        GenericDao.setInt(updateStmt, 2, foodNutrientValue.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -86,7 +86,7 @@ public class FoodNutrientValueDao {
         String deleteForm = "DELETE FROM FoodNutrientValue WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, foodNutrientValue.getId());
+        GenericDao.setInt(deleteStmt, 1, foodNutrientValue.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 

@@ -45,9 +45,9 @@ public class FoodIngredientLineDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, foodIngredientLine.getId());
-        statement.setInt(2, foodIngredientLine.getFoodId());
-        statement.setString(3, foodIngredientLine.getIngredientLineId());
+        GenericDao.setInt(statement, 1, foodIngredientLine.getId());
+        GenericDao.setInt(statement, 2, foodIngredientLine.getFoodId());
+        GenericDao.setString(statement, 3, foodIngredientLine.getIngredientLineId());
 
         GenericDao.genericCreate(connectionManager, statement);
 
@@ -58,7 +58,7 @@ public class FoodIngredientLineDao {
         String selectForm = "SELECT id,foodId,ingredientLineId FROM FoodIngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setInt(1, id);
+        GenericDao.setInt(selectStmt, 1, id);
 
         return GenericDao.genericGet(connectionManager, selectStmt, FoodIngredientLineDao::converter);
     }
@@ -67,8 +67,8 @@ public class FoodIngredientLineDao {
         String updateForm = "UPDATE FoodIngredientLine SET foodId=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setInt(1, newfoodId); 
-        updateStmt.setInt(2, foodIngredientLine.getId());
+        GenericDao.setInt(updateStmt, 1, newfoodId); 
+        GenericDao.setInt(updateStmt, 2, foodIngredientLine.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -81,7 +81,7 @@ public class FoodIngredientLineDao {
         String deleteForm = "DELETE FROM FoodIngredientLine WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, foodIngredientLine.getId());
+        GenericDao.setInt(deleteStmt, 1, foodIngredientLine.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
