@@ -49,13 +49,13 @@ public class IngredientLineDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setString(1, ingredientLine.getId());
-        statement.setInt(2, ingredientLine.getAmountNumerator());
-        statement.setInt(3, ingredientLine.getAmountDenominator());
-        statement.setString(4, ingredientLine.getUnitOfMeasurement());
-        statement.setInt(5, ingredientLine.getFoodId());
-        statement.setInt(6, ingredientLine.getIngredientId());
-        statement.setString(7, ingredientLine.getDescription());
+        GenericDao.setString(statement, 1, ingredientLine.getId());
+        GenericDao.setInt(statement, 2, ingredientLine.getAmountNumerator());
+        GenericDao.setInt(statement, 3, ingredientLine.getAmountDenominator());
+        GenericDao.setString(statement, 4, ingredientLine.getUnitOfMeasurement());
+        GenericDao.setInt(statement, 5, ingredientLine.getFoodId());
+        GenericDao.setInt(statement, 6, ingredientLine.getIngredientId());
+        GenericDao.setString(statement, 7, ingredientLine.getDescription());
         
         GenericDao.genericCreate(connectionManager, statement);
 
@@ -66,7 +66,7 @@ public class IngredientLineDao {
         String selectForm = "SELECT id,amountNumerator,amountDenominator,unitOfMeasurement,foodId,ingredientId,description FROM IngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setString(1, id);
+        GenericDao.setString(selectStmt, 1, id);
 
         return GenericDao.genericGet(connectionManager, selectStmt, IngredientLineDao::converter);
     }
@@ -75,8 +75,8 @@ public class IngredientLineDao {
         String updateForm = "UPDATE IngredientLine SET unitOfMeasurement=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, newUnitOfMeasurement);
-        updateStmt.setString(2, ingredientLine.getId());
+        GenericDao.setString(updateStmt, 1, newUnitOfMeasurement);
+        GenericDao.setString(updateStmt, 2, ingredientLine.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -89,7 +89,7 @@ public class IngredientLineDao {
         String deleteForm = "DELETE FROM IngredientLine WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setString(1, ingredientLine.getId());
+        GenericDao.setString(deleteStmt, 1, ingredientLine.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
