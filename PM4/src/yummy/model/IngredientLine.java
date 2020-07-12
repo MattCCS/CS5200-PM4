@@ -3,14 +3,14 @@ package yummy.model;
 public class IngredientLine {
 
 	protected String id;
-	protected int amountNumerator;
-	protected int amountDenominator;
+	protected Integer amountNumerator;
+	protected Integer amountDenominator;
 	protected String unitOfMeasurement;
-	protected int foodId;
-	protected int ingredientId;
+	protected Integer foodId;
+	protected Integer ingredientId;
 	protected String description;
 
-	public IngredientLine(String id, int amountNumerator, int amountDenominator, String unitOfMeasurement) {
+	public IngredientLine(String id, Integer amountNumerator, Integer amountDenominator, String unitOfMeasurement) {
 		super();
 		this.id = id;
 		this.amountNumerator = amountNumerator;
@@ -18,8 +18,8 @@ public class IngredientLine {
 		this.unitOfMeasurement = unitOfMeasurement;
 	}
 
-	public IngredientLine(String id, int amountNumerator, int amountDenominator, String unitOfMeasurement, int foodId,
-			int ingredientId, String description) {
+	public IngredientLine(String id, Integer amountNumerator, Integer amountDenominator, String unitOfMeasurement, Integer foodId,
+			Integer ingredientId, String description) {
 		super();
 		this.id = id;
 		this.amountNumerator = amountNumerator;
@@ -45,19 +45,19 @@ public class IngredientLine {
 		this.id = id;
 	}
 
-	public int getAmountNumerator() {
+	public Integer getAmountNumerator() {
 		return amountNumerator;
 	}
 
-	public void setAmountNumerator(int amountNumerator) {
+	public void setAmountNumerator(Integer amountNumerator) {
 		this.amountNumerator = amountNumerator;
 	}
 
-	public int getAmountDenominator() {
+	public Integer getAmountDenominator() {
 		return amountDenominator;
 	}
 
-	public void setAmountDenominator(int amountDenominator) {
+	public void setAmountDenominator(Integer amountDenominator) {
 		this.amountDenominator = amountDenominator;
 	}
 
@@ -69,19 +69,19 @@ public class IngredientLine {
 		this.unitOfMeasurement = unitOfMeasurement;
 	}
 
-	public int getFoodId() {
+	public Integer getFoodId() {
 		return foodId;
 	}
 
-	public void setFoodId(int foodId) {
+	public void setFoodId(Integer foodId) {
 		this.foodId = foodId;
 	}
 
-	public int getIngredientId() {
+	public Integer getIngredientId() {
 		return ingredientId;
 	}
 
-	public void setIngredientId(int ingredientId) {
+	public void setIngredientId(Integer ingredientId) {
 		this.ingredientId = ingredientId;
 	}
 
