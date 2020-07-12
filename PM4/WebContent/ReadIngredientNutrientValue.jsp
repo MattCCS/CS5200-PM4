@@ -31,14 +31,18 @@
         <table border="1">
             <tr>
                 <th>Id</th>
-                <th>FoodId</th>
-                <th>IngredientLineId</th> 
+                <th>IngredientId</th>
+                <th>NutrientCodeId</th>
+                <th>NutrientValue</th>
+                <th>NutrientValueUnit</th>
             </tr>
             <c:forEach items="${results}" var="result" >
                 <tr>
                     <td><c:out value="${result.getId()}" /></td>
-                    <td><c:out value="${result.getFoodId()}" /></td>
-                    <td><c:out value="${result.getIngredientLineId()}" /></td>
+                    <td><c:out value="${result.getIngredientId()}" /></td>
+                    <td><c:out value="${result.getNutrientCodeId()}" /></td>
+                    <td><c:out value="${result.getNutrientValue()}" /></td>
+                    <td><c:out value="${result.getNutrientValueUnit()}" /></td>
                 </tr>
             </c:forEach>
         </table>
