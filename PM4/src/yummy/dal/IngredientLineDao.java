@@ -66,6 +66,7 @@ public class IngredientLineDao {
         String selectForm = "SELECT id,amountNumerator,amountDenominator,unitOfMeasurement,foodId,ingredientId,description FROM IngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+        
         GenericDao.setString(selectStmt, 1, id);
 
         return GenericDao.genericGet(connectionManager, selectStmt, IngredientLineDao::converter);
