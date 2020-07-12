@@ -2,10 +2,10 @@ package yummy.model;
 
 public class Recipe {
 
-	protected int id;
+	protected Integer id;
 	protected String name;
 	
-	public Recipe(int id, String name) {
+	public Recipe(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -15,11 +15,11 @@ public class Recipe {
 		return "Recipe [id=" + id + ", name=" + name + "]";
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
