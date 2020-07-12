@@ -68,7 +68,7 @@ public class FoodNutrientValueDao {
     }
 
     public FoodNutrientValue updateNutrientValue(FoodNutrientValue foodNutrientValue, int newNutrientValue) throws SQLException {
-        String updateForm = "UPDATE Nutrient SET nutrientValue=? WHERE id=?;";
+        String updateForm = "UPDATE FoodNutrientValue SET nutrientValue=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
 

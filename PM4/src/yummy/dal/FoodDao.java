@@ -45,20 +45,20 @@ public class FoodDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, food.getId());
-        statement.setString(2, food.getName());
-        statement.setInt(3, food.getCategoryId());
+        GenericDao.setInt(statement, 1, food.getId());
+        GenericDao.setString(statement, 2, food.getName());
+        GenericDao.setInt(statement, 3, food.getCategoryId());
 
         GenericDao.genericCreate(connectionManager, statement);
 
         return food;
     }
 
-    public Food getById(int id) throws SQLException {
+    public Food getById(Integer id) throws SQLException {
         String selectForm = "SELECT id,name,categoryId FROM Food WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setInt(1, id);
+        GenericDao.setInt(selectStmt, 1, id);
 
         return GenericDao.genericGet(connectionManager, selectStmt, FoodDao::converter);
     }
@@ -67,8 +67,8 @@ public class FoodDao {
         String updateForm = "UPDATE Food SET name=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, newName); 
-        updateStmt.setInt(2, food.getId());
+        GenericDao.setString(updateStmt, 1, newName); 
+        GenericDao.setInt(updateStmt, 2, food.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -81,7 +81,7 @@ public class FoodDao {
         String deleteForm = "DELETE FROM Food WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, food.getId());
+        GenericDao.setInt(deleteStmt, 1, food.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 

@@ -37,6 +37,7 @@ public class CreateFood extends HttpServlet {
 
         String id = req.getParameter("id");
         String name = req.getParameter("name");
+        String categoryId = req.getParameter("categoryId");
 
         if (id == null || id.trim().isEmpty()) {
             messages.put("success", "Please enter a valid id.");
@@ -44,7 +45,11 @@ public class CreateFood extends HttpServlet {
             messages.put("success", "Please enter a valid name.");
         } else {
             try {
-            	Food food = new Food(Integer.parseInt(id), name);
+                Integer categoryIdInt = null;
+                if (categoryId != null && !categoryId.trim().isEmpty()) {
+                    categoryIdInt = Integer.parseInt(categoryId);
+                }
+            	Food food = new Food(Integer.parseInt(id), name, categoryIdInt);
                 results.add(foodDao.create(food));
             } catch (SQLException e) {
                 e.printStackTrace();

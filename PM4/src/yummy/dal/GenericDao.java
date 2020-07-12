@@ -14,6 +14,26 @@ import yummy.model.*;
 
 public class GenericDao {
 
+	public static void setNull(PreparedStatement statement, Integer index) throws SQLException {
+		statement.setNull(index, java.sql.Types.NULL);
+	}
+
+	public static void setInt(PreparedStatement statement, Integer index, Integer value) throws SQLException {
+		if (value == null) {
+			setNull(statement, index);
+		} else {
+			statement.setInt(index, value);
+		}
+	}
+
+	public static void setString(PreparedStatement statement, Integer index, String value) throws SQLException {
+		if (value == null) {
+			setNull(statement, index);
+		} else {
+			statement.setString(index, value);
+		}
+	}
+
 	public static void genericCreate(ConnectionManager connectionManager, PreparedStatement statement) throws SQLException {
 		genericExecute(connectionManager, statement);
 	}

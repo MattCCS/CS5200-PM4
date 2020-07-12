@@ -59,7 +59,7 @@ public class IngredientNutrientValueDao {
     }
 
     public IngredientNutrientValue getById(int id) throws SQLException {
-        String selectForm = "SELECT id,ingredientId,nutrientCodeId,nutrientValue,nutrientValueUnit FROM FoodNutrientValue WHERE id=?;";
+        String selectForm = "SELECT id,ingredientId,nutrientCodeId,nutrientValue,nutrientValueUnit FROM IngredientNutrientValue WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
         selectStmt.setInt(1, id);
@@ -68,7 +68,7 @@ public class IngredientNutrientValueDao {
     }
 
     public IngredientNutrientValue updateNutrientValue(IngredientNutrientValue ingredientNutrientValue, int newNutrientValue) throws SQLException {
-        String updateForm = "UPDATE Nutrient SET nutrientValue=? WHERE id=?;";
+        String updateForm = "UPDATE IngredientNutrientValue SET nutrientValue=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
 
