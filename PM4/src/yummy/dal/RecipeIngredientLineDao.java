@@ -45,20 +45,20 @@ public class RecipeIngredientLineDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, recipeIngredientLine.getId());
-        statement.setInt(2, recipeIngredientLine.getRecipeId());
-        statement.setString(3, recipeIngredientLine.getIngredientLineId());
+        GenericDao.setInt(statement, 1, recipeIngredientLine.getId());
+        GenericDao.setInt(statement, 2, recipeIngredientLine.getRecipeId());
+        GenericDao.setString(statement, 3, recipeIngredientLine.getIngredientLineId());
 
         GenericDao.genericCreate(connectionManager, statement);
 
         return recipeIngredientLine;
     }
 
-    public RecipeIngredientLine getById(int id) throws SQLException {
+    public RecipeIngredientLine getById(Integer id) throws SQLException {
         String selectForm = "SELECT id,recipeId,ingredientLineId FROM RecipeIngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setInt(1, id);
+        GenericDao.setInt(selectStmt, 1, id);
 
         return GenericDao.genericGet(connectionManager, selectStmt, RecipeIngredientLineDao::converter);
     }
@@ -67,8 +67,8 @@ public class RecipeIngredientLineDao {
         String updateForm = "UPDATE RecipeIngredientLine SET recipeId=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setInt(1, newRecipeId); 
-        updateStmt.setInt(2, recipeIngredientLine.getId());
+        GenericDao.setInt(updateStmt, 1, newRecipeId); 
+        GenericDao.setInt(updateStmt, 2, recipeIngredientLine.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -81,7 +81,7 @@ public class RecipeIngredientLineDao {
         String deleteForm = "DELETE FROM RecipeIngredientLine WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, recipeIngredientLine.getId());
+        GenericDao.setInt(deleteStmt, 1, recipeIngredientLine.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
