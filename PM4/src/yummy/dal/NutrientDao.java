@@ -44,8 +44,8 @@ public class NutrientDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, nutrient.getNutrientCodeId());
-        statement.setString(2, nutrient.getName());
+        GenericDao.setInt(statement, 1, nutrient.getNutrientCodeId());
+        GenericDao.setString(statement, 2, nutrient.getName());
 
         GenericDao.genericCreate(connectionManager, statement);
 
@@ -56,7 +56,7 @@ public class NutrientDao {
         String selectForm = "SELECT nutrientCodeId,name FROM Nutrient WHERE name=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setString(1, name);
+        GenericDao.setString(selectStmt, 1, name);
 
         return GenericDao.genericGet(connectionManager, selectStmt, NutrientDao::converter);
     }
@@ -65,8 +65,8 @@ public class NutrientDao {
         String updateForm = "UPDATE Nutrient SET name=? WHERE nutrientCodeId=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, name);
-        updateStmt.setInt(2, nutrient.getNutrientCodeId());
+        GenericDao.setString(updateStmt, 1, name);
+        GenericDao.setInt(updateStmt, 2, nutrient.getNutrientCodeId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -79,7 +79,7 @@ public class NutrientDao {
         String deleteForm = "DELETE FROM Nutrient WHERE nutrientCodeId=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, nutrient.getNutrientCodeId());
+        GenericDao.setInt(deleteStmt, 1, nutrient.getNutrientCodeId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
