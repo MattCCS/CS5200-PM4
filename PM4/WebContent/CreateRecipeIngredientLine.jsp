@@ -46,7 +46,7 @@
                 <tr>
                     <td><c:out value="${result.getId()}" /></td>
                     <td><c:out value="${result.getRecipeId()}" /></td>
-                    <td><c:out value="${result.getingredientLineId()}" /></td>
+                    <td><c:out value="${result.getIngredientLineId()}" /></td>
                 </tr>
             </c:forEach>
         </table>
