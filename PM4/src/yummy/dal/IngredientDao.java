@@ -79,6 +79,7 @@ public class IngredientDao {
         String deleteForm = "DELETE FROM Ingredient WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
+        
         GenericDao.setInt(deleteStmt, 1, ingredient.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
