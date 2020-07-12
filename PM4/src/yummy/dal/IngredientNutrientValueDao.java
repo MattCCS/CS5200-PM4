@@ -58,7 +58,7 @@ public class IngredientNutrientValueDao {
         return ingredientNutrientValue;
     }
 
-    public IngredientNutrientValue getById(int id) throws SQLException {
+    public IngredientNutrientValue getById(Integer id) throws SQLException {
         String selectForm = "SELECT id,ingredientId,nutrientCodeId,nutrientValue,nutrientValueUnit FROM IngredientNutrientValue WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -67,7 +67,7 @@ public class IngredientNutrientValueDao {
         return GenericDao.genericGet(connectionManager, selectStmt, IngredientNutrientValueDao::converter);
     }
 
-    public IngredientNutrientValue updateNutrientValue(IngredientNutrientValue ingredientNutrientValue, int newNutrientValue) throws SQLException {
+    public IngredientNutrientValue updateNutrientValue(IngredientNutrientValue ingredientNutrientValue, Integer newNutrientValue) throws SQLException {
         String updateForm = "UPDATE IngredientNutrientValue SET nutrientValue=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);

@@ -8,14 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create IngredientNutrientValue </title>
+<title>Create IngredientNutrientValue</title>
 </head>
 <body>
     <a href="index.jsp">Home</a>
 
-    <h1>Create IngredientNutrientValue </h1>
+    <h1>Create IngredientNutrientValue</h1>
 
-    <form action=createIngredientNutrientValue  method="post">
+    <form action=createIngredientNutrientValue method="post">
         <p>
             <label for="id">Id</label>
             <input id="id" name="id" value="${fn:escapeXml(param.id)}">

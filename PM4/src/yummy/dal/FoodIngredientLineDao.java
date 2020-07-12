@@ -54,7 +54,7 @@ public class FoodIngredientLineDao {
         return foodIngredientLine;
     }
 
-    public FoodIngredientLine getById(int id) throws SQLException {
+    public FoodIngredientLine getById(Integer id) throws SQLException {
         String selectForm = "SELECT id,foodId,ingredientLineId FROM FoodIngredientLine WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -63,7 +63,7 @@ public class FoodIngredientLineDao {
         return GenericDao.genericGet(connectionManager, selectStmt, FoodIngredientLineDao::converter);
     }
 
-    public FoodIngredientLine updateFoodId(FoodIngredientLine foodIngredientLine, int newfoodId) throws SQLException {
+    public FoodIngredientLine updateFoodId(FoodIngredientLine foodIngredientLine, Integer newfoodId) throws SQLException {
         String updateForm = "UPDATE FoodIngredientLine SET foodId=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);

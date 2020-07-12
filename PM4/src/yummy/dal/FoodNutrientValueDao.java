@@ -58,7 +58,7 @@ public class FoodNutrientValueDao {
         return foodNutrientValue;
     }
 
-    public FoodNutrientValue getById(int id) throws SQLException {
+    public FoodNutrientValue getById(Integer id) throws SQLException {
         String selectForm = "SELECT id,foodId,nutrientCodeId,nutrientValue,nutrientValueUnit FROM FoodNutrientValue WHERE id=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
@@ -67,7 +67,7 @@ public class FoodNutrientValueDao {
         return GenericDao.genericGet(connectionManager, selectStmt, FoodNutrientValueDao::converter);
     }
 
-    public FoodNutrientValue updateNutrientValue(FoodNutrientValue foodNutrientValue, int newNutrientValue) throws SQLException {
+    public FoodNutrientValue updateNutrientValue(FoodNutrientValue foodNutrientValue, Integer newNutrientValue) throws SQLException {
         String updateForm = "UPDATE FoodNutrientValue SET nutrientValue=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);

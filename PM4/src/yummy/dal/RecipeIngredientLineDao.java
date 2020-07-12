@@ -63,7 +63,7 @@ public class RecipeIngredientLineDao {
         return GenericDao.genericGet(connectionManager, selectStmt, RecipeIngredientLineDao::converter);
     }
 
-    public RecipeIngredientLine updateRecipeId(RecipeIngredientLine recipeIngredientLine, int newRecipeId) throws SQLException {
+    public RecipeIngredientLine updateRecipeId(RecipeIngredientLine recipeIngredientLine, Integer newRecipeId) throws SQLException {
         String updateForm = "UPDATE RecipeIngredientLine SET recipeId=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);

@@ -13,9 +13,9 @@
 <body>
     <a href="index.jsp">Home</a>
 
-    <h1>Create FoodNutrientValue </h1>
+    <h1>Create FoodNutrientValue</h1>
 
-    <form action=createFoodNutrientValue  method="post">
+    <form action=createFoodNutrientValue method="post">
         <p>
             <label for="id">Id</label>
             <input id="id" name="id" value="${fn:escapeXml(param.id)}">

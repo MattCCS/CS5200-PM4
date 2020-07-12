@@ -20,22 +20,30 @@
 
     <div id="RecipeIngredientLine">
         RecipeIngredientLine
-        C R U D
+        <a href="CreateRecipeIngredientLine.jsp"> C</a>
+        <a href="ReadRecipeIngredientLine.jsp"> R</a>
+        U D
     </div>
 
     <div id="IngredientLine">
         IngredientLine
-        C R U D
+        <a href="CreateIngredientLine.jsp"> C</a>
+        <a href="ReadIngredientLine.jsp"> R</a>
+        U D
     </div>
 
     <div id="FoodIngredientLine">
         FoodIngredientLine
-        C R U D
+        <a href="CreateFoodIngredientLine.jsp"> C</a>
+        <a href="ReadFoodIngredientLine.jsp"> R</a>
+        U D
     </div>
 
     <div id="Food">
         Food
-        C R U D
+        <a href="CreateFood.jsp"> C</a>
+        <a href="ReadFood.jsp"> R</a>
+        U D
     </div>
 
     <div id="Category">
@@ -47,7 +55,9 @@
 
     <div id="FoodNutrientValue">
         FoodNutrientValue
-        C R U D
+        <a href="CreateFoodNutrientValue.jsp"> C</a>
+        <a href="ReadFoodNutrientValue.jsp"> R</a>
+        U D
     </div>
 
     <div id="Ingredient">
@@ -59,7 +69,9 @@
 
     <div id="IngredientNutrientValue">
         IngredientNutrientValue
-        C R U D
+        <a href="CreateIngredientNutrientValue.jsp"> C</a>
+        <a href="ReadIngredientNutrientValue.jsp"> R</a>
+        U D
     </div>
 
     <div id="Nutrient">
