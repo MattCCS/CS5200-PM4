@@ -36,6 +36,7 @@ public class ReadRecipe extends HttpServlet {
         List<Recipe> results = new ArrayList<Recipe>();
 
         String name = req.getParameter("name");
+
         if (name == null || name.trim().isEmpty()) {
             messages.put("success", "Please enter a valid name.");
         } else {

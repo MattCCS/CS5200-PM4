@@ -36,6 +36,7 @@ public class ReadIngredient extends HttpServlet {
         List<Ingredient> results = new ArrayList<Ingredient>();
 
         String name = req.getParameter("name");
+
         if (name == null || name.trim().isEmpty()) {
             messages.put("success", "Please enter a valid name.");
         } else {

@@ -36,6 +36,7 @@ public class ReadCategory extends HttpServlet {
         List<Category> results = new ArrayList<Category>();
 
         String name = req.getParameter("name");
+
         if (name == null || name.trim().isEmpty()) {
             messages.put("success", "Please enter a valid name.");
         } else {

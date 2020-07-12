@@ -10,14 +10,6 @@ public class IngredientLine {
 	protected Integer ingredientId;
 	protected String description;
 
-	public IngredientLine(String id, Integer amountNumerator, Integer amountDenominator, String unitOfMeasurement) {
-		super();
-		this.id = id;
-		this.amountNumerator = amountNumerator;
-		this.amountDenominator = amountDenominator;
-		this.unitOfMeasurement = unitOfMeasurement;
-	}
-
 	public IngredientLine(String id, Integer amountNumerator, Integer amountDenominator, String unitOfMeasurement, Integer foodId,
 			Integer ingredientId, String description) {
 		super();

@@ -37,6 +37,7 @@ public class CreateCategory extends HttpServlet {
 
         String id = req.getParameter("id");
         String name = req.getParameter("name");
+
         if (id == null || id.trim().isEmpty()) {
             messages.put("success", "Please enter a valid id.");
         } else if (name == null || name.trim().isEmpty()) {

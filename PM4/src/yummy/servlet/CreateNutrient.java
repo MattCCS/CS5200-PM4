@@ -37,6 +37,7 @@ public class CreateNutrient extends HttpServlet {
 
         String nutrientCodeId = req.getParameter("nutrientCodeId");
         String name = req.getParameter("name");
+
         if (nutrientCodeId == null || nutrientCodeId.trim().isEmpty()) {
             messages.put("success", "Please enter a valid nutrientCodeId.");
         } else if (name == null || name.trim().isEmpty()) {

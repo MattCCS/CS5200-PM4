@@ -36,6 +36,7 @@ public class ReadNutrient extends HttpServlet {
         List<Nutrient> results = new ArrayList<Nutrient>();
 
         String name = req.getParameter("name");
+
         if (name == null || name.trim().isEmpty()) {
             messages.put("success", "Please enter a valid name.");
         } else {

@@ -45,11 +45,7 @@ public class CreateFood extends HttpServlet {
             messages.put("success", "Please enter a valid name.");
         } else {
             try {
-                Integer categoryIdInt = null;
-                if (categoryId != null && !categoryId.trim().isEmpty()) {
-                    categoryIdInt = Integer.parseInt(categoryId);
-                }
-            	Food food = new Food(Integer.parseInt(id), name, categoryIdInt);
+            	Food food = new Food(Integer.parseInt(id), name, GenericServlet.intOrNull(categoryId));
                 results.add(foodDao.create(food));
             } catch (SQLException e) {
                 e.printStackTrace();

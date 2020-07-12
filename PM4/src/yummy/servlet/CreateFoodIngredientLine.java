@@ -45,7 +45,6 @@ public class CreateFoodIngredientLine extends HttpServlet {
             messages.put("success", "Please enter a valid foodId.");
         } else if (ingredientLineId == null || ingredientLineId.trim().isEmpty()) {
             messages.put("success", "Please enter a valid ingredientLineId.");
-        
         } else {
             try {
             	FoodIngredientLine foodIngredientLine = new FoodIngredientLine(Integer.parseInt(id), Integer.parseInt(foodId), ingredientLineId);

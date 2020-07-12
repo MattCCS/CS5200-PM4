@@ -36,6 +36,7 @@ public class ReadIngredientLine extends HttpServlet {
         List<IngredientLine> results = new ArrayList<IngredientLine>();
 
         String id = req.getParameter("id");
+
         if (id == null || id.trim().isEmpty()) {
             messages.put("success", "Please enter a valid id.");
         } else {
