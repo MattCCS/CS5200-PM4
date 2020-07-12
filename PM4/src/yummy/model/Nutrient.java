@@ -2,10 +2,10 @@ package yummy.model;
 
 public class Nutrient {
 
-    protected int nutrientCodeId;
+    protected Integer nutrientCodeId;
     protected String name;
     
-    public Nutrient(int nutrientCodeId, String name) {
+    public Nutrient(Integer nutrientCodeId, String name) {
         this.nutrientCodeId = nutrientCodeId;
         this.name = name;
     }
@@ -15,11 +15,11 @@ public class Nutrient {
         return "Nutrient [nutrientCodeId=" + nutrientCodeId + ", name=" + name + "]";
     }
 
-    public int getNutrientCodeId() {
+    public Integer getNutrientCodeId() {
         return nutrientCodeId;
     }
 
-    public void setNutrientCodeId(int nutrientCodeId) {
+    public void setNutrientCodeId(Integer nutrientCodeId) {
         this.nutrientCodeId = nutrientCodeId;
     }
 
