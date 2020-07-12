@@ -44,8 +44,8 @@ public class IngredientDao {
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-        statement.setInt(1, ingredient.getId());
-        statement.setString(2, ingredient.getName());
+        GenericDao.setInt(statement, 1, ingredient.getId());
+        GenericDao.setString(statement, 2, ingredient.getName());
 
         GenericDao.genericCreate(connectionManager, statement);
 
@@ -56,7 +56,7 @@ public class IngredientDao {
         String selectForm = "SELECT id,name FROM Ingredient WHERE name=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-        selectStmt.setString(1, name);
+        GenericDao.setString(selectStmt, 1, name);
 
         return GenericDao.genericGet(connectionManager, selectStmt, IngredientDao::converter);
     }
@@ -65,8 +65,8 @@ public class IngredientDao {
         String updateForm = "UPDATE Ingredient SET name=? WHERE id=?;";
 
         PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-        updateStmt.setString(1, name);
-        updateStmt.setInt(2, ingredient.getId());
+        GenericDao.setString(updateStmt, 1, name);
+        GenericDao.setInt(updateStmt, 2, ingredient.getId());
 
         GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -79,7 +79,7 @@ public class IngredientDao {
         String deleteForm = "DELETE FROM Ingredient WHERE id=?;";
 
         PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-        deleteStmt.setInt(1, ingredient.getId());
+        GenericDao.setInt(deleteStmt, 1, ingredient.getId());
 
         GenericDao.genericDelete(connectionManager, deleteStmt);
 
