@@ -2,13 +2,13 @@ package yummy.model;
 
 public class IngredientNutrientValue {
 
-    protected int id;
-    protected int ingredientId;
-    protected int nutrientCodeId;
-    protected int nutrientValue;
+    protected Integer id;
+    protected Integer ingredientId;
+    protected Integer nutrientCodeId;
+    protected Integer nutrientValue;
     protected String nutrientValueUnit;
 
-    public IngredientNutrientValue(int id, int ingredientId, int nutrientCodeId, int nutrientValue, String nutrientValueUnit) {
+    public IngredientNutrientValue(Integer id, Integer ingredientId, Integer nutrientCodeId, Integer nutrientValue, String nutrientValueUnit) {
         super();
         this.id = id;
         this.ingredientId = ingredientId;
@@ -23,35 +23,35 @@ public class IngredientNutrientValue {
                 + ", nutrientValue=" + nutrientValue + ", nutrientValueUnit=" + nutrientValueUnit + "]";
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getIngredientId() {
+    public Integer getIngredientId() {
         return ingredientId;
     }
 
-    public void setIngredientId(int ingredientId) {
+    public void setIngredientId(Integer ingredientId) {
         this.ingredientId = ingredientId;
     }
 
-    public int getNutrientCodeId() {
+    public Integer getNutrientCodeId() {
         return nutrientCodeId;
     }
 
-    public void setNutrientCodeId(int nutrientCodeId) {
+    public void setNutrientCodeId(Integer nutrientCodeId) {
         this.nutrientCodeId = nutrientCodeId;
     }
 
-    public int getNutrientValue() {
+    public Integer getNutrientValue() {
         return nutrientValue;
     }
 
-    public void setNutrientValue(int nutrientValue) {
+    public void setNutrientValue(Integer nutrientValue) {
         this.nutrientValue = nutrientValue;
     }
 
