@@ -44,8 +44,8 @@ public class RecipeDao {
 
 		PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-		statement.setInt(1, recipe.getId());
-		statement.setString(2, recipe.getName());
+		GenericDao.setInt(statement, 1, recipe.getId());
+		GenericDao.setString(statement, 2, recipe.getName());
 
 		GenericDao.genericCreate(connectionManager, statement);
 
@@ -56,7 +56,7 @@ public class RecipeDao {
 		String selectForm = "SELECT id,name FROM Recipe WHERE name=?;";
 
 		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
-		selectStmt.setString(1, name);
+		GenericDao.setString(selectStmt, 1, name);
 
 		return GenericDao.genericGet(connectionManager, selectStmt, RecipeDao::converter);
 	}
@@ -65,8 +65,8 @@ public class RecipeDao {
 		String updateForm = "UPDATE Recipe SET name=? WHERE id=?;";
 
 		PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
-		updateStmt.setString(1, name);
-		updateStmt.setInt(2, recipe.getId());
+		GenericDao.setString(updateStmt, 1, name);
+		GenericDao.setInt(updateStmt, 2, recipe.getId());
 
 		GenericDao.genericUpdate(connectionManager, updateStmt);
 
@@ -79,7 +79,7 @@ public class RecipeDao {
 		String deleteForm = "DELETE FROM Recipe WHERE id=?;";
 
 		PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-		deleteStmt.setInt(1, recipe.getId());
+		GenericDao.setInt(deleteStmt, 1, recipe.getId());
 
 		GenericDao.genericDelete(connectionManager, deleteStmt);
 
