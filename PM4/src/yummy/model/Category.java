@@ -2,10 +2,10 @@ package yummy.model;
 
 public class Category {
 
-    protected int id;
+    protected Integer id;
     protected String name;
     
-    public Category(int id, String name) {
+    public Category(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -15,15 +15,15 @@ public class Category {
         return "Category [id=" + id + ", name=" + name + "]";
     }
 
-    public Category(int id) {
+    public Category(Integer id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
