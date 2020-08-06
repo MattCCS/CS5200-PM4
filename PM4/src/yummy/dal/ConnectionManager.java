@@ -9,10 +9,10 @@ import java.util.Properties;
 public class ConnectionManager {
 
 	private final String user = "root";
-	private final String password = "trDN-(tyK1iw";
+	private final String password = "gao123456";
 	private final String hostName = "localhost";
 	private final int port = 3306;
-	private final String schema = "PM6";
+	private final String schema = "pm4";
 	private final String timezone = "UTC";
 
 	public Connection getConnection() throws SQLException {
