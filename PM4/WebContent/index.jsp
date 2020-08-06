@@ -9,6 +9,22 @@
 </head>
 <body>
     <h1>Hello JSP and Servlet!</h1>
+    
+    <div id="Custom">
+    	Custom Queries:<br/>
+    	<!-- <a href="ShowCaloriesForRecipe.jsp">Calories For Recipe</a><br/> -->
+    	<a href="ShowIngredients.jsp">Ingredients For Recipe</a><br/>
+    	<a href="ShowScaledIngredientsForRecipe.jsp">Scale Ingredients For Recipe</a><br/>
+    	<!-- <a href="ShowWhatRecipesUseFood.jsp">What Recipes Use Food</a><br/> -->
+    	<a href="ShowWhatRecipesUseIngredients.jsp">What Recipes Use Ingredients</a><br/>
+    	<!-- <a href="ShowRecipesLessThanXCalories.jsp">Recipes Less Than X Calories</a><br/> -->
+    	<!-- <a href="ShowRecipesWithoutCategory.jsp">Recipes Without Category</a><br/> -->
+    	<!-- <a href="ShowHealthierRecipe.jsp">Pick Healthier Recipe</a><br/> -->
+    	<!-- <a href="ShowWhatRecipesExcludeCategory.jsp">What Recipes Exclude Category</a><br/> -->
+    </div>
+    
+    <br/>
+    CRUD OPERATIONS:
 
     <div id="Recipe">
         Recipe
