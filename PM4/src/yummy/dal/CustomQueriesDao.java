@@ -200,4 +200,58 @@ public class CustomQueriesDao {
 		return results;
 	}
 
+	public List<List<String>> showAllergens(Integer recipeId) throws SQLException {
+		String selectForm = "select rid,\n" + 
+				"    rname,\n" + 
+				"    sum(case when fg = 'Milk' then 1 else 0 end) as 'Milk',\n" + 
+				"    sum(case when fg = 'Fish' then 1 else 0 end) as 'Fish',\n" + 
+				"    sum(case when fg = 'Shellfish' then 1 else 0 end) as 'Shellfish',\n" + 
+				"    sum(case when fg = 'Egg' then 1 else 0 end) as 'Egg',\n" + 
+				"    sum(case when fg = 'Nuts' then 1 else 0 end) as 'Nuts',\n" + 
+				"    sum(case when fg = 'Soy' then 1 else 0 end) as 'Soy',\n" + 
+				"    sum(case when fg = 'Wheat' then 1 else 0 end) as 'Wheat'\n" + 
+				"from (\n" + 
+				"    select r.id as rid, r.name as rname, f.name, c.name as cname, c.id as cid,\n" + 
+				"        (case\n" + 
+				"            when c.id < 2000 then 'Milk'\n" + 
+				"            when c.id in (2402, 3006) then 'Fish'\n" + 
+				"            when c.id = 2404 then 'Shellfish'\n" + 
+				"            when c.id = 2502 then 'Egg'\n" + 
+				"            when c.id = 2804 then 'Nuts'\n" + 
+				"            when c.id in (2806, 3404, 8404) then 'Soy'\n" + 
+				"            when c.id in (3204, 3206, 3208, 3602) then 'Wheat'\n" + 
+				"            when (c.id >= 4000 and c.id <= 4604) then 'Wheat'\n" + 
+				"            when c.id = 5802 then 'Milk'\n" + 
+				"            when (c.id >= 8000 and c.id <= 8009) then 'Milk'\n" + 
+				"            else NULL\n" + 
+				"        end) as fg\n" + 
+				"    from recipe r\n" + 
+				"    join recipeline rl on rl.recipeid = r.id\n" + 
+				"    join food f on rl.foodid = f.id\n" + 
+				"    left join category c on f.categoryId = c.id\n" + 
+				"    where r.id = ?\n" + 
+				") recipeAllergens group by rid;";
+
+		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+		GenericDao.setInt(selectStmt, 1, recipeId);
+		selectStmt.execute();
+
+		ResultSet resultSet = selectStmt.getResultSet();
+		List<List<String>> results = new ArrayList<>();
+		while (resultSet.next()) {
+			ArrayList<String> row = new ArrayList<>();
+			row.add(resultSet.getString(1));
+			row.add(resultSet.getString(2));
+			row.add(resultSet.getString(3));
+			row.add(resultSet.getString(4));
+			row.add(resultSet.getString(5));
+			row.add(resultSet.getString(6));
+			row.add(resultSet.getString(7));
+			row.add(resultSet.getString(8));
+			row.add(resultSet.getString(9));
+			results.add(row);
+		}
+		return results;
+	}
+
 }

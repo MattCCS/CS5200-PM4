@@ -16,11 +16,7 @@
     	<a href="ShowIngredients.jsp">Ingredients For Recipe</a><br/>
     	<a href="ShowScaledIngredientsForRecipe.jsp">Scale Ingredients For Recipe</a><br/>
     	<a href="ShowCalories.jsp">Calories For Recipe</a><br/>
-    	<!-- <a href="ShowWhatRecipesUseFood.jsp">What Recipes Use Food</a><br/> -->
-    	<!-- <a href="ShowRecipesLessThanXCalories.jsp">Recipes Less Than X Calories</a><br/> -->
-    	<!-- <a href="ShowRecipesWithoutCategory.jsp">Recipes Without Category</a><br/> -->
-    	<!-- <a href="ShowHealthierRecipe.jsp">Pick Healthier Recipe</a><br/> -->
-    	<!-- <a href="ShowWhatRecipesExcludeCategory.jsp">What Recipes Exclude Category</a><br/> -->
+    	<!-- <a href="ShowAllergens.jsp">Allergens For Recipe</a><br/> -->
     </div>
     
     <br/>
