@@ -13,7 +13,7 @@
 <body>
     <a href="index.jsp">Home</a>
 
-    <h1>Find an RecipeLine by id</h1>
+    <h1>Find a RecipeLine by id</h1>
 
     <form action=readRecipeLine method="get">
         <p>

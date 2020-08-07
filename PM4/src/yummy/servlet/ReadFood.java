@@ -36,17 +36,25 @@ public class ReadFood extends HttpServlet {
         List<Food> results = new ArrayList<Food>();
 
         String id = req.getParameter("id");
+        String name = req.getParameter("name");
 
-        if (id == null || id.trim().isEmpty()) {
-            messages.put("success", "Please enter a valid id.");
+        Boolean noId = (id == null || id.trim().isEmpty());
+        Boolean noName = (name == null || name.trim().isEmpty());
+
+        if (noId && noName) {
+            messages.put("success", "Please enter a valid id or name.");
         } else {
         	try {
-        		results.add(foodDao.getById(Integer.parseInt(id)));
+            	if (noId) {
+                    results.add(foodDao.getByName(name));
+                } else {
+                    results.add(foodDao.getById(GenericServlet.intOrNull(id)));
+                }
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
             }
-        	messages.put("success", "Displaying results for " + id);
+        	messages.put("success", "Displaying results for " + (noId ? name : id));
         }
         req.setAttribute("results", results);
 

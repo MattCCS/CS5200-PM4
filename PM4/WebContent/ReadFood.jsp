@@ -13,13 +13,17 @@
 <body>
     <a href="index.jsp">Home</a>
 
-    <h1>Find a Food by Id</h1>
+    <h1>Find a Food by Id or Name</h1>
 
     <form action=readFood method="get">
         <p>
             <label for="id">Id</label>
             <input id="id" name="id" value="${fn:escapeXml(param.id)}">
         </p>
+		<p>
+			<label for="name">Name</label>
+			<input id="name" name="name" value="${fn:escapeXml(param.name)}">
+		</p>
         <p>
             <input type="submit">
             <br/><br/><br/>

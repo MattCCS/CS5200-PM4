@@ -53,6 +53,15 @@ public class CategoryDao {
         return category;
     }
 
+    public Category getById(Integer id) throws SQLException {
+        String selectForm = "SELECT id,name,foodgroupid FROM Category WHERE id=?;";
+
+        PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+        GenericDao.setInt(selectStmt, 1, id);
+
+        return GenericDao.genericGet(connectionManager, selectStmt, CategoryDao::converter);
+    }
+
     public Category getByName(String name) throws SQLException {
         String selectForm = "SELECT id,name,foodgroupid FROM Category WHERE name=?;";
 

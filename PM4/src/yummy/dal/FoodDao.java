@@ -63,6 +63,15 @@ public class FoodDao {
         return GenericDao.genericGet(connectionManager, selectStmt, FoodDao::converter);
     }
 
+    public Food getByName(String name) throws SQLException {
+        String selectForm = "SELECT id,name,categoryId FROM Food WHERE name=?;";
+
+        PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+        GenericDao.setString(selectStmt, 1, name);
+
+        return GenericDao.genericGet(connectionManager, selectStmt, FoodDao::converter);
+    }
+
     public Food updateName(Food food, String newName) throws SQLException {
         String updateForm = "UPDATE Food SET name=? WHERE id=?;";
 

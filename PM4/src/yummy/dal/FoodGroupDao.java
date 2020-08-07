@@ -52,6 +52,15 @@ public class FoodGroupDao {
 		return foodgroup;
 	}
 
+	public FoodGroup getById(Integer id) throws SQLException {
+		String selectForm = "SELECT id,name FROM FoodGroup WHERE id=?;";
+
+		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+		GenericDao.setInt(selectStmt, 1, id);
+
+		return GenericDao.genericGet(connectionManager, selectStmt, FoodGroupDao::converter);
+	}
+
 	public FoodGroup getByName(String name) throws SQLException {
 		String selectForm = "SELECT id,name FROM FoodGroup WHERE name=?;";
 
