@@ -12,11 +12,11 @@
     
     <div id="Custom">
     	Custom Queries:<br/>
-    	<!-- <a href="ShowCaloriesForRecipe.jsp">Calories For Recipe</a><br/> -->
+    	<a href="ShowWhatRecipesUseIngredients.jsp">What Recipes Use Ingredients</a><br/>
     	<a href="ShowIngredients.jsp">Ingredients For Recipe</a><br/>
     	<a href="ShowScaledIngredientsForRecipe.jsp">Scale Ingredients For Recipe</a><br/>
+    	<a href="ShowCalories.jsp">Calories For Recipe</a><br/>
     	<!-- <a href="ShowWhatRecipesUseFood.jsp">What Recipes Use Food</a><br/> -->
-    	<a href="ShowWhatRecipesUseIngredients.jsp">What Recipes Use Ingredients</a><br/>
     	<!-- <a href="ShowRecipesLessThanXCalories.jsp">Recipes Less Than X Calories</a><br/> -->
     	<!-- <a href="ShowRecipesWithoutCategory.jsp">Recipes Without Category</a><br/> -->
     	<!-- <a href="ShowHealthierRecipe.jsp">Pick Healthier Recipe</a><br/> -->

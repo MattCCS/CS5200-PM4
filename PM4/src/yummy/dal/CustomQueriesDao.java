@@ -162,4 +162,42 @@ public class CustomQueriesDao {
 		return results;
 	}
 
+	public List<List<String>> showCalories(Integer recipeId) throws SQLException {
+		String selectForm = "select r.id as rid, r.name,\n" + 
+				"floor(sum(fnv.nutrientValue *\n" + 
+				"    (case\n" + 
+				"        when rl.unitOfMeasurement in ('g', 'grams') then (rl.amountNumerator / rl.amountDenominator / 100)\n" + 
+				"        when rl.unitOfMeasurement in ('C', 'C.', 'cup', 'cup(s)', 'cups') then (rl.amountNumerator / rl.amountDenominator / 0.5)\n" + 
+				"        when rl.unitOfMeasurement in ('ounce', 'ounces', 'oz', 'oz.') then (rl.amountNumerator / rl.amountDenominator / 3.5274)\n" + 
+				"        when rl.unitOfMeasurement in ('lb', 'lb.', 'pound', 'pounds') then (rl.amountNumerator / rl.amountDenominator / 0.220462)\n" + 
+				"        when rl.unitOfMeasurement in ('tablespoon', 'tablespoon(s)', 'tablespoons', 'TBS', 'Tbs.', 'Tbsp', 'tbsp.') then (rl.amountNumerator / rl.amountDenominator / 6.67)\n" + 
+				"        when rl.unitOfMeasurement in ('teaspoon', 'teaspoon(s)', 'teaspoons', 'tsp', 'tsp.') then (rl.amountNumerator / rl.amountDenominator / 20)\n" + 
+				"        else 1\n" + 
+				"    end)\n" + 
+				")) as calories,\n" + 
+				"fnv.nutrientValueUnit from recipe r\n" + 
+				"join recipeline rl on rl.recipeid = r.id\n" + 
+				"join food f on rl.foodid = f.id\n" + 
+				"join foodnutrientvalue fnv on rl.foodid = fnv.foodid\n" + 
+				"join nutrient n on fnv.nutrientCodeId = n.nutrientCodeId\n" + 
+				"where n.nutrientCodeId = 208 and r.id = ?\n" + 
+				"group by r.name, fnv.nutrientValueUnit;";
+
+		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+		GenericDao.setInt(selectStmt, 1, recipeId);
+		selectStmt.execute();
+
+		ResultSet resultSet = selectStmt.getResultSet();
+		List<List<String>> results = new ArrayList<>();
+		while (resultSet.next()) {
+			ArrayList<String> row = new ArrayList<>();
+			row.add(resultSet.getString(1));
+			row.add(resultSet.getString(2));
+			row.add(resultSet.getString(3));
+			row.add(resultSet.getString(4));
+			results.add(row);
+		}
+		return results;
+	}
+
 }
