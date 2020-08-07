@@ -13,9 +13,13 @@
 <body>
     <a href="index.jsp">Home</a>
 
-    <h1>Find a Nutrient by Name</h1>
+    <h1>Find a Nutrient by Id or Name</h1>
 
     <form action=readNutrient method="get">
+        <p>
+            <label for="id">Id</label>
+            <input id="id" name="id" value="${fn:escapeXml(param.id)}">
+        </p>
         <p>
             <label for="name">Name</label>
             <input id="name" name="name" value="${fn:escapeXml(param.name)}">

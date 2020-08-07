@@ -52,6 +52,15 @@ public class NutrientDao {
         return nutrient;
     }
 
+    public Nutrient getById(Integer id) throws SQLException {
+        String selectForm = "SELECT nutrientCodeId,name FROM Nutrient WHERE nutrientCodeId=?;";
+
+        PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+        GenericDao.setInt(selectStmt, 1, id);
+
+        return GenericDao.genericGet(connectionManager, selectStmt, NutrientDao::converter);
+    }
+
     public Nutrient getByName(String name) throws SQLException {
         String selectForm = "SELECT nutrientCodeId,name FROM Nutrient WHERE name=?;";
 
