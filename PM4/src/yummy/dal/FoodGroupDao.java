@@ -39,17 +39,17 @@ public class FoodGroupDao {
 		}
 	}
 
-	public FoodGroup create(FoodGroup foodGroup) throws SQLException {
+	public FoodGroup create(FoodGroup foodgroup) throws SQLException {
 		String insertForm = "INSERT INTO FoodGroup(id,name) VALUES(?,?);";
 
 		PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
-		GenericDao.setInt(statement, 1, foodGroup.getId());
-		GenericDao.setString(statement, 2, foodGroup.getName());
+		GenericDao.setInt(statement, 1, foodgroup.getId());
+		GenericDao.setString(statement, 2, foodgroup.getName());
 
 		GenericDao.genericCreate(connectionManager, statement);
 
-		return foodGroup;
+		return foodgroup;
 	}
 
 	public FoodGroup getByName(String name) throws SQLException {
@@ -61,25 +61,25 @@ public class FoodGroupDao {
 		return GenericDao.genericGet(connectionManager, selectStmt, FoodGroupDao::converter);
 	}
 
-	public FoodGroup updateName(FoodGroup foodGroup, String name) throws SQLException {
+	public FoodGroup updateName(FoodGroup foodgroup, String name) throws SQLException {
 		String updateForm = "UPDATE FoodGroup SET name=? WHERE id=?;";
 
 		PreparedStatement updateStmt = connectionManager.getConnection().prepareStatement(updateForm);
 		GenericDao.setString(updateStmt, 1, name);
-		GenericDao.setInt(updateStmt, 2, foodGroup.getId());
+		GenericDao.setInt(updateStmt, 2, foodgroup.getId());
 
 		GenericDao.genericUpdate(connectionManager, updateStmt);
 
 		// Update before returning to the caller.
-		foodGroup.setName(name);
-		return foodGroup;
+		foodgroup.setName(name);
+		return foodgroup;
 	}
 
-	public FoodGroup delete(FoodGroup foodGroup) throws SQLException {
+	public FoodGroup delete(FoodGroup foodgroup) throws SQLException {
 		String deleteForm = "DELETE FROM FoodGroup WHERE id=?;";
 
 		PreparedStatement deleteStmt = connectionManager.getConnection().prepareStatement(deleteForm);
-		GenericDao.setInt(deleteStmt, 1, foodGroup.getId());
+		GenericDao.setInt(deleteStmt, 1, foodgroup.getId());
 
 		GenericDao.genericDelete(connectionManager, deleteStmt);
 

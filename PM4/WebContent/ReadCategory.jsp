@@ -38,7 +38,7 @@
                 <tr>
                     <td><c:out value="${result.getId()}" /></td>
                     <td><c:out value="${result.getName()}" /></td>
-                    <td><c:out value="${result.getFoodGroupId()}" /></td>
+                    <td><c:out value="${result.getFoodgroupid()}" /></td>
                 </tr>
             </c:forEach>
         </table>

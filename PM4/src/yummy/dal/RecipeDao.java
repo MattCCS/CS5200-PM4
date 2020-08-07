@@ -52,6 +52,15 @@ public class RecipeDao {
 		return recipe;
 	}
 
+	public Recipe getById(Integer id) throws SQLException {
+		String selectForm = "SELECT id,name FROM Recipe WHERE id=?;";
+
+		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
+		GenericDao.setInt(selectStmt, 1, id);
+
+		return GenericDao.genericGet(connectionManager, selectStmt, RecipeDao::converter);
+	}
+
 	public Recipe getByName(String name) throws SQLException {
 		String selectForm = "SELECT id,name FROM Recipe WHERE name=?;";
 

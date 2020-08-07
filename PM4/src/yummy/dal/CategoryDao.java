@@ -41,20 +41,20 @@ public class CategoryDao {
     }
 
     public Category create(Category category) throws SQLException {
-        String insertForm = "INSERT INTO Category(id,name,foodGroupId) VALUES(?,?,?);";
+        String insertForm = "INSERT INTO Category(id,name,foodgroupid) VALUES(?,?,?);";
 
         PreparedStatement statement = connectionManager.getConnection().prepareStatement(insertForm);
 
         GenericDao.setInt(statement, 1, category.getId());
         GenericDao.setString(statement, 2, category.getName());
-        GenericDao.setInt(statement, 3, category.getFoodGroupId());
+        GenericDao.setInt(statement, 3, category.getFoodgroupid());
         GenericDao.genericCreate(connectionManager, statement);
 
         return category;
     }
 
     public Category getByName(String name) throws SQLException {
-        String selectForm = "SELECT id,name,foodGroupId FROM Category WHERE name=?;";
+        String selectForm = "SELECT id,name,foodgroupid FROM Category WHERE name=?;";
 
         PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
         GenericDao.setString(selectStmt, 1, name);

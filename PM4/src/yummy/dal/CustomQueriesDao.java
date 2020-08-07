@@ -143,15 +143,12 @@ public class CustomQueriesDao {
 				") include\n" + 
 				"join recipe r on r.id = recipeid\n" + 
 				"where count >= ?";
-		
-		System.out.println(selectForm);
 
 		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
 		for (int i = 0; i < ingredientsList.size(); i++) {
 			GenericDao.setString(selectStmt, i + 1, ingredientsList.get(i).strip());
 		}
 		GenericDao.setInt(selectStmt, ingredientsList.size() + 1, ingredientsList.size());
-		System.out.println(selectStmt);
 		selectStmt.execute();
 
 		ResultSet resultSet = selectStmt.getResultSet();
