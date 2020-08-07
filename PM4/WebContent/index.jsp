@@ -34,24 +34,10 @@
         D
     </div>
 
-    <div id="RecipeIngredientLine">
-        RecipeIngredientLine
-        <a href="CreateRecipeIngredientLine.jsp"> C</a>
-        <a href="ReadRecipeIngredientLine.jsp"> R</a>
-        U D
-    </div>
-
-    <div id="IngredientLine">
-        IngredientLine
-        <a href="CreateIngredientLine.jsp"> C</a>
-        <a href="ReadIngredientLine.jsp"> R</a>
-        U D
-    </div>
-
-    <div id="FoodIngredientLine">
-        FoodIngredientLine
-        <a href="CreateFoodIngredientLine.jsp"> C</a>
-        <a href="ReadFoodIngredientLine.jsp"> R</a>
+    <div id="RecipeLine">
+        RecipeLine
+        <a href="CreateRecipeLine.jsp"> C</a>
+        <a href="ReadRecipeLine.jsp"> R</a>
         U D
     </div>
 
@@ -76,17 +62,10 @@
         U D
     </div>
 
-    <div id="Ingredient">
-        Ingredient
-        <a href="CreateIngredient.jsp"> C</a>
-        <a href="ReadIngredient.jsp"> R</a>
-        U D
-    </div>
-
-    <div id="IngredientNutrientValue">
-        IngredientNutrientValue
-        <a href="CreateIngredientNutrientValue.jsp"> C</a>
-        <a href="ReadIngredientNutrientValue.jsp"> R</a>
+    <div id="FoodGroup">
+        FoodGroup
+        <a href="CreateFoodGroup.jsp"> C</a>
+        <a href="ReadFoodGroup.jsp"> R</a>
         U D
     </div>
 
@@ -96,7 +75,6 @@
         <a href="ReadNutrient.jsp"> R</a>
         U D
     </div>
-
 
 </body>
 </html>
