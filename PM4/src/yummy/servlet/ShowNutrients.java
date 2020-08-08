@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/showCalories")
-public class ShowCalories extends HttpServlet {
+@WebServlet("/showNutrients")
+public class ShowNutrients extends HttpServlet {
 
 	protected CustomQueriesDao customQueriesDao;
 
@@ -41,7 +41,7 @@ public class ShowCalories extends HttpServlet {
             messages.put("success", "Please enter a valid id.");
         } else {
         	try {
-        		results = customQueriesDao.showCalories(Integer.parseInt(id));
+        		results = customQueriesDao.showNutrients(Integer.parseInt(id));
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
@@ -50,6 +50,6 @@ public class ShowCalories extends HttpServlet {
         }
         req.setAttribute("results", results);
 
-        req.getRequestDispatcher("/ShowCalories.jsp").forward(req, resp);
+        req.getRequestDispatcher("/ShowNutrients.jsp").forward(req, resp);
 	}
 }

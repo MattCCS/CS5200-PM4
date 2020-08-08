@@ -15,7 +15,7 @@
     	<a href="ShowWhatRecipesUseIngredients.jsp">What Recipes Use Ingredients</a><br/>
     	<a href="ShowIngredients.jsp">Ingredients For Recipe</a><br/>
     	<a href="ShowScaledIngredientsForRecipe.jsp">Scale Ingredients For Recipe</a><br/>
-    	<a href="ShowCalories.jsp">Calories For Recipe</a><br/>
+    	<a href="ShowNutrients.jsp">Nutrients For Recipe</a><br/>
     	<!-- <a href="ShowAllergens.jsp">Allergens For Recipe</a><br/> -->
     </div>
     

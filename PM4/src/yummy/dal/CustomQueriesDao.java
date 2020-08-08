@@ -162,7 +162,7 @@ public class CustomQueriesDao {
 		return results;
 	}
 
-	public List<List<String>> showCalories(Integer recipeId) throws SQLException {
+	public List<List<String>> showNutrients(Integer recipeId) throws SQLException {
 		String selectForm = "select r.id as rid, r.name,\n" + 
 				"floor(sum(fnv.nutrientValue *\n" + 
 				"    (case\n" + 
@@ -175,13 +175,13 @@ public class CustomQueriesDao {
 				"        else 1\n" + 
 				"    end)\n" + 
 				")) as calories,\n" + 
-				"fnv.nutrientValueUnit from recipe r\n" + 
+				"fnv.nutrientValueUnit, n.name from recipe r\n" + 
 				"join recipeline rl on rl.recipeid = r.id\n" + 
 				"join food f on rl.foodid = f.id\n" + 
 				"join foodnutrientvalue fnv on rl.foodid = fnv.foodid\n" + 
 				"join nutrient n on fnv.nutrientCodeId = n.nutrientCodeId\n" + 
-				"where n.nutrientCodeId = 208 and r.id = ?\n" + 
-				"group by r.name, fnv.nutrientValueUnit;";
+				"where r.id = ?\n" + 
+				"group by r.name, fnv.nutrientValueUnit, n.name;";
 
 		PreparedStatement selectStmt = connectionManager.getConnection().prepareStatement(selectForm);
 		GenericDao.setInt(selectStmt, 1, recipeId);
@@ -195,6 +195,7 @@ public class CustomQueriesDao {
 			row.add(resultSet.getString(2));
 			row.add(resultSet.getString(3));
 			row.add(resultSet.getString(4));
+			row.add(resultSet.getString(5));
 			results.add(row);
 		}
 		return results;

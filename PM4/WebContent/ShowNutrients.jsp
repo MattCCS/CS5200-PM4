@@ -8,14 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Show Calories</title>
+<title>Show Nutrients for Recipe</title>
 </head>
 <body>
     <a href="index.jsp">Home</a>
 
-    <h1>Show Calories</h1>
+    <h1>Show Nutrients for Recipe</h1>
 
-    <form action=showCalories method="get">
+    <form action=showNutrients method="get">
         <p>
             <label for="id">Id</label>
             <input id="id" name="id" value="${fn:escapeXml(param.id)}">
@@ -32,8 +32,9 @@
             <tr>
                 <th>id</th>
                 <th>name</th>
-                <th>calories</th>
+                <th>nutrientValueAmount</th>
                 <th>nutrientValueUnit</th>
+                <th>nutrientName</th>
             </tr>
             <c:forEach items="${results}" var="result" >
                 <tr>
@@ -41,6 +42,7 @@
                     <td><c:out value="${result.get(1)}" /></td>
                     <td><c:out value="${result.get(2)}" /></td>
                     <td><c:out value="${result.get(3)}" /></td>
+                    <td><c:out value="${result.get(4)}" /></td>
                 </tr>
             </c:forEach>
         </table>
